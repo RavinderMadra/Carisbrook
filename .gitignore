@@ -3,3 +3,6 @@
 ################################################################################
 
 /Carisbrook/bin
+/Carisbrook/obj/Debug
+/.vs/config
+/.vs/Carisbrook/v15/Server/sqlite3
