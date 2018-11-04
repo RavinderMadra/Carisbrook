@@ -171,7 +171,15 @@
     <Content Include="Assets\images\3.jpg" />
     <Content Include="Assets\images\4.jpg" />
     <Content Include="Assets\images\a1.jpg" />
+    <Content Include="Assets\images\Achivement\Flashmob2013.jpg" />
+    <Content Include="Assets\images\Achivement\MaggiCookingComp.jpg" />
+    <Content Include="Assets\images\Achivement\roadpatrol.jpg" />
+    <Content Include="Assets\images\Achivement\warriorsvisit.jpg" />
     <Content Include="Assets\images\arrow.png" />
+    <Content Include="Assets\images\Arts\dance.jpg" />
+    <Content Include="Assets\images\Arts\hiphop.jpg" />
+    <Content Include="Assets\images\Arts\kapahaka.jpg" />
+    <Content Include="Assets\images\Arts\pecifica.jpg" />
     <Content Include="Assets\images\bg.jpg" />
     <Content Include="Assets\images\bg4.jpg" />
     <Content Include="Assets\images\bg5.png" />
@@ -277,6 +285,7 @@
     <Content Include="Views\Home\MenuSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AdminAsset\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
