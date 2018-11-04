@@ -184,6 +184,7 @@
     <Content Include="Assets\images\bg4.jpg" />
     <Content Include="Assets\images\bg5.png" />
     <Content Include="Assets\images\bg7.jpg" />
+    <Content Include="Assets\images\Border.png" />
     <Content Include="Assets\images\c-arrows.png" />
     <Content Include="Assets\images\c1.jpg" />
     <Content Include="Assets\images\c2.jpg" />
@@ -202,11 +203,17 @@
     <Content Include="Assets\images\g9.jpg" />
     <Content Include="Assets\images\graduate.png" />
     <Content Include="Assets\images\left.png" />
+    <Content Include="Assets\images\Logo.png" />
+    <Content Include="Assets\images\Logo_tag.png" />
     <Content Include="Assets\images\right.png" />
     <Content Include="Assets\images\s1.jpg" />
     <Content Include="Assets\images\s2.jpg" />
     <Content Include="Assets\images\s3.jpg" />
     <Content Include="Assets\images\s4.jpg" />
+    <Content Include="Assets\images\Slider.jpg" />
+    <Content Include="Assets\images\Slider1.jpg" />
+    <Content Include="Assets\images\Slider2.jpg" />
+    <Content Include="Assets\images\Slider3.jpg" />
     <Content Include="Assets\images\sports\Property.jpg" />
     <Content Include="Assets\images\t1.jpg" />
     <Content Include="Assets\images\t2.jpg" />
