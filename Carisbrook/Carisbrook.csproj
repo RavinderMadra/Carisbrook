@@ -166,10 +166,6 @@
     <Content Include="Assets\css\simplelightbox.min.css" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\fonts\fontawesome-webfont.svg" />
-    <Content Include="Assets\images\1.jpg" />
-    <Content Include="Assets\images\2.jpg" />
-    <Content Include="Assets\images\3.jpg" />
-    <Content Include="Assets\images\4.jpg" />
     <Content Include="Assets\images\a1.jpg" />
     <Content Include="Assets\images\Achivement\Flashmob2013.jpg" />
     <Content Include="Assets\images\Achivement\MaggiCookingComp.jpg" />
