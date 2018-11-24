@@ -15,39 +15,33 @@ namespace Demo.Core.EntityModel
 using System;
     using System.Collections.Generic;
     
-public partial class tblMenu
+public partial class UserType
 {
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public tblMenu()
+    public UserType()
     {
 
-        this.tblSubMenus = new HashSet<tblSubMenu>();
+        this.Users = new HashSet<User>();
 
     }
 
 
-    public int Id { get; set; }
+    public long Id { get; set; }
 
-    public string MenuName { get; set; }
+    public string Name { get; set; }
 
-    public string MenuDescription { get; set; }
+    public string Code { get; set; }
+
+    public System.DateTime CreatedOn { get; set; }
 
     public bool IsActive { get; set; }
-
-    public System.DateTime CreatedDate { get; set; }
-
-    public System.DateTime ModifiedDate { get; set; }
-
-    public string CreatedBy { get; set; }
-
-    public string ModifiedBy { get; set; }
 
 
 
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
-    public virtual ICollection<tblSubMenu> tblSubMenus { get; set; }
+    public virtual ICollection<User> Users { get; set; }
 
 }
 

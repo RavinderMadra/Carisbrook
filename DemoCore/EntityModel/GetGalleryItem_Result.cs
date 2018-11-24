@@ -13,25 +13,17 @@ namespace Demo.Core.EntityModel
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class tblMenu
+public partial class GetGalleryItem_Result
 {
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-    public tblMenu()
-    {
+    public long id { get; set; }
 
-        this.tblSubMenus = new HashSet<tblSubMenu>();
+    public string GalleryName { get; set; }
 
-    }
+    public string GalleryPath { get; set; }
 
-
-    public int Id { get; set; }
-
-    public string MenuName { get; set; }
-
-    public string MenuDescription { get; set; }
+    public long TypeId { get; set; }
 
     public bool IsActive { get; set; }
 
@@ -43,11 +35,7 @@ public partial class tblMenu
 
     public string ModifiedBy { get; set; }
 
-
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<tblSubMenu> tblSubMenus { get; set; }
+    public string AlbumName { get; set; }
 
 }
 

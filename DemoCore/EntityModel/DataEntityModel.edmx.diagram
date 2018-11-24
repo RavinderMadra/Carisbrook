@@ -5,9 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="59c38954b3e64318bbe40b2ea4ad77b5" Name="Diagram1" ZoomLevel="97">
-        <EntityTypeShape EntityType="TransportManagementSystemModel.tblMenu" Width="1.5" PointX="0.75" PointY="1.125" />
         <EntityTypeShape EntityType="TransportManagementSystemModel.tblSubMenu" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="TransportManagementSystemModel.UserDetail" Width="1.5" PointX="9.875" PointY="1.625" />
+        <EntityTypeShape EntityType="TransportManagementSystemModel.User" Width="1.5" PointX="7.625" PointY="1.125" />
+        <EntityTypeShape EntityType="TransportManagementSystemModel.UserType" Width="1.5" PointX="5.375" PointY="2.875" />
+        <AssociationConnector Association="TransportManagementSystemModel.FK__UserDetails__Users__Id" />
+        <AssociationConnector Association="TransportManagementSystemModel.FK__UserTypeId__UserType__Id" />
+        <EntityTypeShape EntityType="TransportManagementSystemModel.tblMenu" Width="1.5" PointX="0.75" PointY="1.25" />
         <AssociationConnector Association="TransportManagementSystemModel.FK_tblSubMenu_tblMenu" />
+        <EntityTypeShape EntityType="TransportManagementSystemModel.mtbAlbum" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="TransportManagementSystemModel.tblGallery" Width="1.5" PointX="2.75" PointY="5.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -74,10 +74,28 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="EntityModel\GetGalleryItem_Result.cs">
+      <DependentUpon>DataEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\mtbAlbum.cs">
+      <DependentUpon>DataEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\tblGallery.cs">
+      <DependentUpon>DataEntityModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModel\tblMenu.cs">
       <DependentUpon>DataEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EntityModel\tblSubMenu.cs">
+      <DependentUpon>DataEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\User.cs">
+      <DependentUpon>DataEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\UserDetail.cs">
+      <DependentUpon>DataEntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\UserType.cs">
       <DependentUpon>DataEntityModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

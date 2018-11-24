@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +14,11 @@ namespace DemoModel.ViewModel
         public int MainMenuId { get; set; }
 
         public string MenuName { get; set; }
-
         public string MenuText { get; set; }
-
+        
+        [Required(ErrorMessage = "Menu Description is required")]
+        [Display(Name = "Menu Description*")]
+        
         public string MenuDescription { get; set; }
 
         public bool IsActive { get; set; }

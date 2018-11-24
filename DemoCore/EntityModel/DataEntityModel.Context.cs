@@ -17,6 +17,9 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
+using System.Data.Entity.Core.Objects;
+using System.Linq;
+
 
 public partial class OnBoadTaskEntities : DbContext
 {
@@ -34,9 +37,31 @@ public partial class OnBoadTaskEntities : DbContext
     }
 
 
+    public virtual DbSet<tblSubMenu> tblSubMenus { get; set; }
+
+    public virtual DbSet<UserDetail> UserDetails { get; set; }
+
+    public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<UserType> UserTypes { get; set; }
+
     public virtual DbSet<tblMenu> tblMenus { get; set; }
 
-    public virtual DbSet<tblSubMenu> tblSubMenus { get; set; }
+    public virtual DbSet<mtbAlbum> mtbAlbums { get; set; }
+
+    public virtual DbSet<tblGallery> tblGalleries { get; set; }
+
+
+    public virtual ObjectResult<GetGalleryItem_Result> GetGalleryItem(Nullable<long> id)
+    {
+
+        var idParameter = id.HasValue ?
+            new ObjectParameter("Id", id) :
+            new ObjectParameter("Id", typeof(long));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetGalleryItem_Result>("GetGalleryItem", idParameter);
+    }
 
 }
 
