@@ -2,13 +2,4 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Carisbrook/bin
-/Carisbrook/obj/Debug
-/.vs/config
-/.vs/Carisbrook/v15/Server/sqlite3
-/DemoService/bin/Debug
-/DemoCore/obj/Debug
-/.vs
-/DemoCore/obj/Release
-/DemoModel/obj/Release
-/DemoService/obj/Release
+/DemoCore/bin/Release

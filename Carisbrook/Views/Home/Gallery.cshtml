@@ -1,7 +1,64 @@
-﻿
+﻿@model List<DemoModel.ViewModel.GalleryViewModel>
 @{
     ViewBag.Title = "Gallery";
 }
 
-<h2>Gallery view</h2>
+<div class="gallery">
+    <div class="container">
+        <div class="title-div">
+            <h3 class="tittle">
+                <span>O</span>ur <span>G</span>allery
+            </h3>
+            <div class="tittle-style">
+
+            </div>
+        </div>
+        <div class="agileinfo-gallery-row">
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-4 w3gallery-grids">
+                    <a href=@item.GalleryPath class="imghvr-hinge-right figure">
+                        <img src=@item.GalleryPath alt="" class="imgclass" title="@item.GalleryPath" />
+                        <div class="agile-figcaption">
+                            <h4>@item.GalleryName</h4>
+                        </div>
+                    </a>
+                </div>
+
+            }
+            @if (Model.Count == 0)
+
+            {
+                <div class="col-xs-4 w3gallery-grids">
+
+                </div>
+                <div class="col-xs-4 w3gallery-grids">
+
+                    <div class="agile-figcaption">
+                        <h4>No image for this Album</h4>
+                    </div>
+
+                </div>
+                <div class="col-xs-4 w3gallery-grids">
+
+
+                </div>
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<script src="~/Assets/js/jquery-2.1.4.min.js"></script>
+<script>
+    $(function () {
+        var gallery = $('.agileinfo-gallery-row a').simpleLightbox({
+            navText: ['&lsaquo;', '&rsaquo;']
+        });
+    });
+    $(document).ready(function () {
+        $('.imgclass').click();
+    }
+    )
+   
+</script>
 

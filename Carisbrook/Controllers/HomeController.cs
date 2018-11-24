@@ -1,4 +1,5 @@
-﻿using DemoService.MenuNamespace;
+﻿using DemoModel.ViewModel;
+using DemoService.MenuNamespace;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,17 @@ namespace Carisbrook.Controllers
         public ActionResult MenuSection()
         {
             return PartialView();
+        }
+        public ActionResult Album()
+        {
+            List<AlbumViewModel> album = ms.GetAllAlbum();
+            return View(album);
+        }
+        public ActionResult Gallery(int albumId)
+        {
+            List <GalleryViewModel> gallery = ms.GetAllGallery()
+                .Where(x=>x.TypeId== albumId).ToList();
+            return View(gallery);
         }
     }
 }

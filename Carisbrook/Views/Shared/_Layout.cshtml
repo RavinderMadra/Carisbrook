@@ -63,7 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
                     </a>
                 </div>
                 <div class="header-top-righ">
-                    <a href="#">
+                    <a href="@Url.Action("Login", "Account")">
                         <span class="fa fa-sign-out" aria-hidden="true"></span>Login
                     </a>
                 </div>
@@ -105,34 +105,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
             </nav>
         </div>
     </div>
-    @RenderBody()
-
-    <div class="mkl_footer">
+    <div> @RenderBody()</div>
+       
+    
+       <div class="mkl_footer">
         <div class="sub-footer">
             <div class="container">
                 <div class="mkls_footer_grid">
                     <div class="col-xs-4 mkls_footer_grid_left">
                         <h4>Location:</h4>
                         <p>
-                            1235, Caversham,
-                            <br> South Road, NZ
+                            Carisbrook School Main Site:                            
+                            <br> 217 South Road, Caversham
+                            <br>  DUNEDIN   9012
                         </p>
                     </div>
                     <div class="col-xs-4 mkls_footer_grid_left">
                         <h4>Mail Us:</h4>
                         <p>
-                            <span>Phone : </span>001 234 5678
+                            <span>Telephone: </span>03 455 8315
                         </p>
                         <p>
-                            <span>Email : </span>
-                            <a href="#">mail@example.com</a>
+                            <span>Facsimile: </span>03 455 3720
+                        </p>
+                        <p>
+                            <span>Email : </span>office@carisbrook.school.nz                                                      
                         </p>
                     </div>
                     <div class="col-xs-4 mkls_footer_grid_left">
                         <h4>Opening Hours:</h4>
-                        <p>Working days : 8am-10pm</p>
+                        <p>Working days : 9am-4pm</p>
                         <p>
-                            Sunday
+                            Saturday-Sunday
                             <span>(closed)</span>
                         </p>
                     </div>
@@ -151,7 +155,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
                 <div class="allah-copy">
                     <p>
                         Copyright © 2018 Carisbrook School |
-                        Web Development by <a href="#">ravindermadra</a>
+                        Web Development by <a href="#"  style="color:white">ravindermadra</a>
                     </p>
                 </div>
                 <div class="footercopy-social">
@@ -248,13 +252,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
     <!-- smooth scrolling -->
     <!-- //js-files -->
     <script type="text/javascript" src="~/Assets/js/simple-lightbox.js"></script>
-    <script>
+    @*<script>
         $(function () {
             var gallery = $('.agileinfo-gallery-row a').simpleLightbox({
                 navText: ['&lsaquo;', '&rsaquo;']
             });
         });
-    </script>
+    </script>*@
     <link href='~/Assets/css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
     <!-- Light-box css -->
     <!-- smooth scrolling -->

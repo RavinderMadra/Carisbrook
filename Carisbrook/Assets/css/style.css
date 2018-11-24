@@ -444,9 +444,9 @@ h3.tittle {
     margin-bottom: 16px;
 }
 
-h3.tittle span {
-    color: #005596 ;
-}
+    h3.tittle span {
+        color: #005596;
+    }
 
 .tittle-style {
     position: relative;
@@ -513,7 +513,7 @@ h3.tittle span {
 /*-- stats --*/
 
 .stats-info-agile {
-    background: url(../images/a1.jpg) no-repeat center;
+    background: url(../images/img/Property1.jpg) no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
