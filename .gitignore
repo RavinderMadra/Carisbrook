@@ -3,3 +3,10 @@
 ################################################################################
 
 /DemoCore/bin/Release
+/Carisbrook/obj/Debug
+/DemoService/bin/Debug
+/DemoModel/bin/Release
+/Carisbrook/bin
+/DemoCore/obj
+/DemoModel/obj
+/.vs

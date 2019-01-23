@@ -1,6 +1,6 @@
 E:\GitHubProject\Carisbrook\DemoModel\bin\Debug\DemoModel.dll
 E:\GitHubProject\Carisbrook\DemoModel\bin\Debug\DemoModel.pdb
-E:\GitHubProject\Carisbrook\DemoModel\obj\Debug\DemoModel.csprojAssemblyReference.cache
 E:\GitHubProject\Carisbrook\DemoModel\obj\Debug\DemoModel.csproj.CoreCompileInputs.cache
 E:\GitHubProject\Carisbrook\DemoModel\obj\Debug\DemoModel.dll
 E:\GitHubProject\Carisbrook\DemoModel\obj\Debug\DemoModel.pdb
+E:\GitHubProject\Carisbrook\DemoModel\obj\Debug\DemoModel.csprojAssemblyReference.cache
