@@ -1,0 +1,2413 @@
+﻿USE [master]
+GO
+/****** Object:  Database [CarisbrookDb]    Script Date: 18/03/2019 3:12:28 a.m. ******/
+CREATE DATABASE [CarisbrookDb]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'CarisbrookDb', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\CarisbrookDb.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'CarisbrookDb_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL14.SQLEXPRESS\MSSQL\DATA\CarisbrookDb_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+GO
+ALTER DATABASE [CarisbrookDb] SET COMPATIBILITY_LEVEL = 140
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [CarisbrookDb].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [CarisbrookDb] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [CarisbrookDb] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [CarisbrookDb] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [CarisbrookDb] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [CarisbrookDb] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [CarisbrookDb] SET  MULTI_USER 
+GO
+ALTER DATABASE [CarisbrookDb] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [CarisbrookDb] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [CarisbrookDb] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [CarisbrookDb] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [CarisbrookDb] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [CarisbrookDb] SET QUERY_STORE = OFF
+GO
+USE [CarisbrookDb]
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET IDENTITY_CACHE = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET LEGACY_CARDINALITY_ESTIMATION = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET LEGACY_CARDINALITY_ESTIMATION = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET MAXDOP = 0;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET MAXDOP = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET PARAMETER_SNIFFING = ON;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET PARAMETER_SNIFFING = PRIMARY;
+GO
+ALTER DATABASE SCOPED CONFIGURATION SET QUERY_OPTIMIZER_HOTFIXES = OFF;
+GO
+ALTER DATABASE SCOPED CONFIGURATION FOR SECONDARY SET QUERY_OPTIMIZER_HOTFIXES = PRIMARY;
+GO
+USE [CarisbrookDb]
+GO
+/****** Object:  Table [dbo].[mtbAlbum]    Script Date: 18/03/2019 3:12:29 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[mtbAlbum](
+	[id] [bigint] IDENTITY(101,1) NOT NULL,
+	[AlbumName] [varchar](250) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[CreatedBy] [varchar](50) NOT NULL,
+	[ModifiedBy] [varchar](50) NOT NULL,
+	[AlbumImage] [varchar](max) NULL,
+ CONSTRAINT [PK__mtbAlbum__Id] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblGallery]    Script Date: 18/03/2019 3:12:30 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblGallery](
+	[id] [bigint] IDENTITY(101,1) NOT NULL,
+	[GalleryName] [varchar](250) NOT NULL,
+	[GalleryPath] [varchar](max) NOT NULL,
+	[TypeId] [bigint] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[CreatedBy] [varchar](50) NOT NULL,
+	[ModifiedBy] [varchar](50) NOT NULL,
+ CONSTRAINT [PK__tblGallery__Id] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblMenu]    Script Date: 18/03/2019 3:12:30 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblMenu](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[MenuName] [varchar](50) NOT NULL,
+	[MenuDescription] [varchar](50) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[CreatedBy] [varchar](50) NOT NULL,
+	[ModifiedBy] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_tblMenu] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[tblSubMenu]    Script Date: 18/03/2019 3:12:30 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tblSubMenu](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[MainMenuId] [int] NOT NULL,
+	[MenuName] [varchar](50) NOT NULL,
+	[MenuText] [varchar](max) NOT NULL,
+	[MenuDescription] [varchar](50) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[CreatedDate] [datetime] NOT NULL,
+	[ModifiedDate] [datetime] NOT NULL,
+	[CreatedBy] [varchar](50) NOT NULL,
+	[ModifiedBy] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_tblSubMenu] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserDetails]    Script Date: 18/03/2019 3:12:30 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserDetails](
+	[Id] [bigint] NOT NULL,
+	[DateOfBirth] [datetime] NULL,
+	[Gender] [int] NULL,
+	[CurCountry] [int] NULL,
+	[CurState] [int] NULL,
+	[CurCity] [int] NULL,
+	[CurZipCode] [varchar](50) NULL,
+	[CurAddress1] [varchar](700) NULL,
+	[CurAddress2] [varchar](700) NULL,
+	[PerCountry] [int] NULL,
+	[PerState] [int] NULL,
+	[PerCity] [int] NULL,
+	[PerZipCode] [varchar](50) NULL,
+	[PerAddress1] [varchar](700) NULL,
+	[PerAddress2] [varchar](700) NULL,
+	[CostPerMile] [float] NULL,
+	[CostPerMinute] [float] NULL,
+ CONSTRAINT [PK_UserDetails] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 18/03/2019 3:12:31 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[UserTypeId] [bigint] NOT NULL,
+	[FirstName] [nvarchar](50) NULL,
+	[LastName] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NULL,
+	[PhoneNumber] [varchar](50) NULL,
+	[WorkPhone] [varchar](50) NULL,
+	[UserName] [nvarchar](100) NULL,
+	[SaltKey] [nvarchar](50) NULL,
+	[PasswordHash] [nvarchar](250) NULL,
+	[DefaultPassword] [bit] NULL,
+	[LastLoginDate] [datetime] NULL,
+	[IsOnLine] [bit] NULL,
+	[AccountStatus] [int] NULL,
+	[ReportingTo] [bigint] NULL,
+	[CreatedBy] [bigint] NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[ModifiedBy] [bigint] NULL,
+	[ModifiedOn] [datetime] NULL,
+	[IsActive] [bit] NOT NULL,
+	[IsDeleted] [bit] NOT NULL,
+	[AssignedRegionId] [bigint] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UserTypes]    Script Date: 18/03/2019 3:12:31 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UserTypes](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](50) NOT NULL,
+	[Code] [varchar](10) NOT NULL,
+	[CreatedOn] [datetime] NOT NULL,
+	[IsActive] [bit] NOT NULL,
+ CONSTRAINT [PK_UserTypes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[mtbAlbum] ON 
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (101, N'BikeTrack Opening', 1, CAST(N'2017-07-30T03:06:06.057' AS DateTime), CAST(N'2018-11-25T09:53:24.620' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/gallery/BikeTrackOpening/IMG_1.jpg')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (102, N'Camps', 1, CAST(N'2017-07-30T04:37:28.737' AS DateTime), CAST(N'2018-11-25T20:08:11.323' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/gallery/Camps/IMG_1.png')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (103, N'Kapa Haka', 1, CAST(N'2017-07-30T04:37:34.747' AS DateTime), CAST(N'2018-11-25T09:47:15.327' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/gallery/KapaHaka/Photo_1.jpg')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (104, N'Pesifica Perfomance', 1, CAST(N'2017-09-02T11:43:01.287' AS DateTime), CAST(N'2018-11-25T09:47:28.117' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/gallery/PesificaPerfomance/IMG.jpg')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (105, N'SingaPore Tour', 1, CAST(N'2018-11-25T07:18:07.700' AS DateTime), CAST(N'2018-11-25T09:47:48.600' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/gallery/SingaPore/IMG.jpg')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (106, N'Swing Group', 1, CAST(N'2018-11-25T08:18:17.920' AS DateTime), CAST(N'2018-11-25T08:47:32.250' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/gallery/SwingGroup/swingclub.png')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (10105, N'c sharp', 0, CAST(N'2018-11-25T20:08:40.780' AS DateTime), CAST(N'2018-11-25T20:09:53.857' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/g1.jpg')
+GO
+INSERT [dbo].[mtbAlbum] ([id], [AlbumName], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy], [AlbumImage]) VALUES (10106, N'temple', 0, CAST(N'2018-11-26T21:22:53.603' AS DateTime), CAST(N'2018-11-26T21:22:53.603' AS DateTime), N'101', N'101', N'http://localhost:52784/Assets/images/g6.jpg')
+GO
+SET IDENTITY_INSERT [dbo].[mtbAlbum] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblGallery] ON 
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (101, N'photo1', N'http://localhost:52784/Assets/images/gallery/BikeTrackOpening/IMG_2.jpg', 101, 1, CAST(N'2017-07-30T05:20:01.397' AS DateTime), CAST(N'2018-11-25T10:17:40.263' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (102, N'photo2', N'http://localhost:52784/Assets/images/gallery/BikeTrackOpening/IMG_3.jpg', 101, 1, CAST(N'2017-07-30T05:20:01.447' AS DateTime), CAST(N'2017-09-02T11:39:25.653' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (103, N'photo3', N'http://localhost:52784/Assets/images/gallery/BikeTrackOpening/IMG_4.jpg', 101, 1, CAST(N'2017-07-30T05:20:32.977' AS DateTime), CAST(N'2017-07-30T05:20:32.977' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (10103, N'photo4', N'http://localhost:52784/Assets/images/gallery/BikeTrackOpening/IMG_5.jpg', 101, 1, CAST(N'2017-09-02T11:43:50.183' AS DateTime), CAST(N'2017-09-02T11:43:50.183' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (10104, N'photo5', N'http://localhost:52784/Assets/images/gallery/Camps/IMG_2.jpg', 102, 1, CAST(N'2017-09-02T11:44:38.220' AS DateTime), CAST(N'2017-09-02T11:44:38.220' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (10105, N'photo6', N'http://localhost:52784/Assets/images/gallery/Camps/IMG_3.jpg', 102, 1, CAST(N'2017-09-02T11:45:09.393' AS DateTime), CAST(N'2018-11-25T08:00:34.033' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (10106, N'photo7', N'http://localhost:52784/Assets/images/gallery/Camps/IMG_4.jpg', 102, 1, CAST(N'2018-11-25T08:42:44.193' AS DateTime), CAST(N'2018-11-25T08:44:39.690' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (10107, N'photo8', N'http://localhost:52784/Assets/images/gallery/Camps/IMG_5.png', 102, 1, CAST(N'2018-11-25T08:45:08.810' AS DateTime), CAST(N'2018-11-25T08:45:44.933' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20108, N'photo9', N'http://localhost:52784/Assets/images/gallery/KapaHaka/Photo_2.jpg', 103, 1, CAST(N'2019-03-11T00:00:00.000' AS DateTime), CAST(N'2019-03-11T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20110, N'photo10', N'http://localhost:52784/Assets/images/gallery/KapaHaka/Photo_3.jpg', 103, 1, CAST(N'2019-03-11T00:00:00.000' AS DateTime), CAST(N'2019-03-11T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20112, N'phpto11', N'http://localhost:52784/Assets/images/gallery/KapaHaka/Photo_4.jpg', 103, 1, CAST(N'2019-03-11T00:00:00.000' AS DateTime), CAST(N'2019-03-11T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20115, N'photo12', N'http://localhost:52784/Assets/images/gallery/PesificaPerfomance/IMG_1.jpg', 104, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20116, N'photo13', N'http://localhost:52784/Assets/images/gallery/PesificaPerfomance/IMG_2.jpg', 104, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20117, N'photo14', N'http://localhost:52784/Assets/images/gallery/PesificaPerfomance/IMG_3.jpg', 104, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20118, N'photo15', N'http://localhost:52784/Assets/images/gallery/PesificaPerfomance/IMG_4.jpg', 104, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20119, N'photo16', N'http://localhost:52784/Assets/images/gallery/PesificaPerfomance/IMG_5.jpg', 104, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20120, N'photo17', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_1.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20121, N'photo18', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_2.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20122, N'photo19', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_3.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20123, N'photo20', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_4.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20124, N'photo21', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_5.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20125, N'photo22', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_6.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20126, N'photo23', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_7.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20127, N'photo24', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_8.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20128, N'photo25', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_9.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20129, N'photo26', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_10.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20130, N'photo27', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_11.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20131, N'photo28', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_12.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20132, N'photo29', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_13.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20133, N'photo30', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_14.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20134, N'photo31', N'http://localhost:52784/Assets/images/gallery/Singapore/IMG_15.jpg', 105, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20135, N'photo32', N'http://localhost:52784/Assets/images/gallery/SwingGroup/IMG.jpg', 106, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblGallery] ([id], [GalleryName], [GalleryPath], [TypeId], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20136, N'photo33', N'http://localhost:52784/Assets/images/gallery/SwingGroup/IMG2.jpg', 106, 1, CAST(N'2019-03-12T00:00:00.000' AS DateTime), CAST(N'2019-03-12T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+SET IDENTITY_INSERT [dbo].[tblGallery] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblMenu] ON 
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (1, N'Home', N'aaa', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (2, N'About', N'bbb', 1, CAST(N'2018-10-20T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (3, N'Ourschool', N'ccc', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (4, N'Curriculum', N'ddd', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (5, N'GeneralInfo', N'eee', 1, CAST(N'2018-10-02T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (6, N'Gallery', N'fff', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblMenu] ([Id], [MenuName], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (7, N'ContactUs', N'ggg', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+SET IDENTITY_INSERT [dbo].[tblMenu] OFF
+GO
+SET IDENTITY_INSERT [dbo].[tblSubMenu] ON 
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (1, 2, N'PrincipalMsg', N'<div class="blog-cource">
+  <div class="container">
+ <div class="title-div">
+				<h3 class="tittle">
+					<span>W</span>elcome
+					<span>T</span>o
+					<span>C</span>arisbrook
+					<span>S</span>chool					
+				</h3>
+				<div class="tittle-style">	</div>
+			</div>
+<div class="about-sub">
+    <div class="col-md-8 about_bottom_left">
+    
+
+ <p>Carisbrook School is a co-educational school and provides quality teaching and learning to students from Year 1 through to Year 
+           Carisbrook will create a safe, caring and respectful environment where students feel a sense of belonging and where positive relationships are valued.</p>
+
+ <p>Carisbrook School’s is a  modern learning environment and construction and refurbishment was completed in 2014. The modern learning environment provides a 
+     stimulating, light and bright atmosphere for our students to learn in.</p>
+
+  <p> Carisbrook School is an amazing educational facility that assists us in providing the best of opportunities for our students to excel in their learning. 
+      Our staff are highly skilled, enthusiastic and focused on the accelerated learning of our students.</p>
+   </div>
+    
+    <div class="col-md-4 about2-info">
+     <img src="../../Assets/images/PrincipalMsg.jpg" alt="">
+    </div>
+<div class="col-md-12 about_bottom_left">
+<p>Our supporting Board of Trustees ensures that we have the resources to provide not just quality education within our school environment but also a diverse
+ range of learning opportunities in the wider environment that Carisbrook School students benefit from.</p>
+
+ <p> We pride ourselves on the opportunities we provide our students at Carisbrook School.  We offer a wide range of opportunities in sports, outdoor education, 
+  information technology, clubs and the arts including performing arts. In the 2018 performing arts programme we will be providing opportunities for students to
+ participate in a wide variety of the arts including; Kapa haka, Pasifika performance, dance performance clubs, choir, and some musical instrument playing. 
+Carisbrook Kapa haka and Carisbrook Pasifika performance operates for the full school year and not simply as a build up to the Otago Pasifika Performance.</p>
+
+ <p>For Outdoor Education Carisbrook School provides the opportunity for all students to participate in a camp experience from Year 1 through to Year 8.
+  Our senior students attend a ‘leadership camp’ as well as having the opportunity to attend a ski camp. At year six level our students have the opportunity to be
+ part of the Singapore Cultural Exchange when they reach year eight level. This involves a lot of fundraising on their part. The Singapore Cultural Exchange 2018 
+will be the third group of Carisbrook students to benefit from this opportunity.</p>
+
+<p> At Carisbrook School we are proud to offer a wide variety of additional programmes aimed at assisting, extending and supporting our students and 
+we employ specialist reading, writing and maths teachers who provide both learning support and extension opportunities.</p>
+<p> Carisbrook School is well stocked with the most up-to-date resources and equipment including interactive whiteboards, laptops and i-pads amongst other ICT equipment.</p>
+
+ <p><span>Our Values are Respectful, Responsible and Resilient and we have a focus on positive behaviour fort learning<span></span></span></p>
+ <p> Each Carisbrook pupil will be challenged and encouraged to reach their full potential or beyond, in the best learning environment possible.</p>
+<p>Ben Sincock</p>
+<p>Principal</p>
+  
+</div>
+    
+    <div class="clearfix"> </div>
+   </div>
+</div>
+</div>', N'msg', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (2, 2, N'Staff', N'<div class="team">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>O</span>ur
+					<span>F</span>aculties
+				</h3>
+				<div class="tittle-style" >
+                <h4>                  
+                    <span></span>
+                </h4>
+				</div>
+			</div>
+			<div class="team-row-agileinfo">
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/BenSincock.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Ben Sincock</h4>
+							<p>Principal</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/KatrinaMunro.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Katrina Munro</h4>
+							<p>Deputy Principal</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/AnneSwan.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Anne Swan</h4>
+							<p>Associate Principal</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/JaniceBeharrell.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Janice Beharrell</h4>
+							<p>Associate Principal</p>							
+						</div>
+					</div>
+				</div>			
+
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/KellieTaylor.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Kellie Taylor</h4>
+							<p>Office Manager</p>							
+						</div>
+					</div>
+				</div>			
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/XzeniaKutia.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Xzenia Kutia</h4>
+							<p>Ruma Pohutakawa</p>							
+						</div>
+					</div>
+				</div>		
+				<div class="clearfix"> </div>							
+     		</div>	
+		
+			<div class="team-row-agileinfo">
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/KarlStill.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Karl Still</h4>
+							<p>Teacher Ruma Rimu</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/TonyRoche.jpg " class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Tony Roche</h4>
+							<p>Teacher Ruma Wheke</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/DebbieGriffiths.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Debbie Griffiths</h4>
+							<p>Teacher Ruma Weka</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/Ann_Ruxton.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Ann Ruxton</h4>
+							<p>Technology Teacher</p>							
+						</div>
+					</div>
+				</div>	
+                <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/CarolynHorton.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Carolyn Horton </h4>
+							<p>Teacher Ruma Kakapo</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/SophiePriemus.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Sophie Priemus</h4>
+							<p>Teacher Ruma Paikea</p>							
+						</div>
+					</div>
+				</div>							
+				<div class="clearfix"> </div>								
+		    </div>	 			
+		
+			<div class="team-row-agileinfo">					
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/AnnaTaylor.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Anna Taylor</h4>
+							<p>Teacher Ruma Kiwi</p>							
+						</div>
+					</div>
+				</div>	
+                <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/JocelynWilson.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Jocelyn Wilson </h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/EmmaAnderson.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Emma Anderson</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/JulieWilson.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Julie Wilson</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/MichaelSmith.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Michael Smith</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>			
+                <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/TracyMacManus.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Tracy MacManus</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>					
+              				
+				<div class="clearfix"> </div>									
+		    </div>	 			
+	
+			<div class="team-row-agileinfo">				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/TonyHayward.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Tony Hayward</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/SharonHollander.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Sharon Hollander</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>	
+             
+                <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/RobinSimpson.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Robin Simpson</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>	
+
+                <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/JohnFitzgibbon.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>John Fitzgibbon</h4>
+							<p>Caretaker</p>							
+						</div>
+					</div>
+				</div>	
+
+               <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/TimBarham.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Tim Barham</h4>
+							<p>Teacher Aide</p>							
+						</div>
+					</div>
+				</div>	
+                <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/TomRenwick.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Tom Renwick</h4>
+							<p>Teacher</p>							
+						</div>
+					</div>
+				</div>					
+				<div class="clearfix"> </div>								
+		    </div>		
+	
+			<div class="team-row-agileinfo">
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/RachaelLawless.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Rachael Lawless </h4>
+							<p>Teacher Ruma Pukeko</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/TaniaHodges.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Tania Hodges</h4>
+							<p>Team Leader Ruma Tui</p>							
+						</div>
+					</div>
+				</div>	
+               <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/AshMcClenaghan.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Ash McClenaghan</h4>
+							<p>Teacher Manaia</p>							
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+						<img src="../../Assets/images/staff/JessGregg.jpg" class="img-responsive" alt="" />
+						<div class="effectd-caption">
+							<h4>Jess Gregg </h4>
+							<p>Reading Recovery Teacher</p>							
+						</div>
+					</div>
+				</div>
+                				
+				<div class="clearfix"> </div>	
+								
+		    </div>
+			
+	</div>
+</div>
+							', N'staff', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (3, 2, N'BoardofTrust', N'<div class="team">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>O</span>ur
+					<span>F</span>aculties
+				</h3>
+				<div class="tittle-style" >
+                <p>  The Board of Trustees (BOT) has the overall responsibility for the smooth running of the school, although it delegates much of the
+				day to day management of this to the Principal and staff. The main practical concerns of the Board are policy development and strategic planning, budgeting and administration of funds, appointment and employment of staff,
+				maintenance and improvement of school buildings and grounds, and ensuring the health and safety of students, staff, parents and school visitors.</p>
+				</div>
+			</div>
+			<div class="team-row-agileinfo">
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Steve Coombes</h4>
+							<p>Chairperson</p>								
+						</div>
+					</div>
+				</div>				
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Ben Sincock </h4>
+							<p>Principal</p>							
+						</div>
+					</div>
+				</div>			
+										
+				<div class="clearfix"> </div>							
+     		</div>	
+		</div>
+     </div>
+	 
+	 <div class="team">
+		<div class="container">
+			<div class="title-div">					
+			</div>
+			<div class="team-row-agileinfo">
+			 <div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Emily Scott</h4>
+							<p>Deputy Chairperson</p>							
+						</div>
+					</div>
+				</div>			
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Sheralyn Weepers </h4>
+							<p>Member OF Trust</p>							
+						</div>
+					</div>
+				</div>							
+				
+				
+				<div class="clearfix"> </div>								
+		    </div>
+			</div>
+		</div>
+		
+	
+	<div class="team">
+		<div class="container">
+			<div class="title-div">					
+			</div>
+			<div class="team-row-agileinfo">
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Bruce Lamb</h4>
+							<p>Member OF Trust</p>							
+						</div>
+					</div>
+				</div>			
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Justin Courtney	</h4>
+							<p>Member OF Trust</p>								
+						</div>
+					</div>
+				</div>			
+				<div class="clearfix"> </div>								
+		    </div>
+			</div>
+		</div>
+		
+		<div class="team">
+		<div class="container">
+			<div class="title-div">					
+			</div>
+			<div class="team-row-agileinfo">
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Rachelle Moors </h4>
+							<p>Staff Rep</p>							
+						</div>
+					</div>
+				</div>			
+				
+				<div class="col-md-2 col-sm-6 col-xs-6 team-grids">
+					<div class="thumbnail team-agileits">
+					   <div class="effectd-caption">
+							<h4>Karene Scott </h4>
+							<p>Secretary </p>							
+						</div>
+					</div>
+				</div>	
+				<div class="clearfix"> </div>								
+		    </div>
+			</div>
+		</div>
+		
+		
+		', N'member', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (4, 2, N'FriendofSchool', N'	<div class="about-sec" id="about">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>F</span>riends 
+					<span>O</span>F
+					<span>S</span>chool
+					
+				</h3>
+				<div class="tittle-style">	</div>
+			</div>
+			<div class="about-sub">
+				<div class="col-md-6 about_bottom_left">
+					<h4> 
+						<span></span>
+					</h4>					
+					<p>Carisbrook School have an active ''Friends of the School'' in operation. The Friends of the School (FotS) are a group of 
+						parents and caregivers who meet monthly to organise events and fundraising activities to raise funds for student activities.</p>					
+				</div>
+				
+				<div class="col-md-6 about2-info">
+					<img src="../../Assets/images/img/FOS.jpg" alt="" />
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+	
+	    ', N'friend', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (5, 2, N'Our Supporter', N'<div class="blog-cource">
+  <div class="container">
+<div class="title-div">
+    <h3 class="tittle">
+     <span>K</span>ids<span>C</span>an
+    </h3>
+    <div class="tittle-style">   </div>
+ </div>
+   
+<div class="about-sub">    
+<div class="col-md-12 about_bottom_left">
+  <p>Carisbrook School is proudly supported by KidsCan.  Their mission is to meet the physical and nutritional needs of Kiwi kids so they can be more 
+  <engaged in their education and have a better chance of reaching their potential in life.  Their tangible programmes, <h5><span style="color:#005596; font-size:20px; font-weight:600;">Food for Kids, Shoes for Kids,
+  Raincoats for Kids and Health for Kids</span></h5> concentrate on giving the basics directly to children in need in partnership with the schools they attend.</p>
+</div>    
+    <div class="clearfix"> </div>
+</div>
+
+</div>
+</div>', N'Suppot', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-19T19:59:17.020' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (6, 3, N'LearningProg', N'<div class="about-sec" id="about">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>L</span>earning  
+					<span>S</span>upport
+					<span>P</span>rogrammes
+					
+				</h3>
+				<div class="tittle-style">
+                   <p>Carisbrook School is focussed on providing opportunities and support for students to reach their full potential.
+				   Carisbrook School provides a number of programmes to boost student achievement in Literacy and
+				   Mathematics including the following. These support programmes are intervention programmes and can range from a few weeks
+				   to whole year duration. </p>
+				</div>
+			</div>
+			<div class="about-sub">
+				<div class="col-md-12 about_bottom_left">
+					<h4>R<span>eading </span>
+					    R<span>ecovery </span>
+						P<span>rogramme</span>
+					</h4>
+					<p>The Reading Recovery programme is a Literacy acceleration programme targeting six year old students. 
+					Each student receives half an hour each day in a one to one session for an average of 20 weeks with a qualified Reading Recovery teacher. 
+					Carisbrook School invests significant resourcing into this programme and have three teachers working part time in the Reading Recovery area; 
+					Carolyn Horton, Debbie Griffiths and Sophie Priemus. 
+                    </p>					
+				 </div>
+				<div class="clearfix"> </div>
+			</div>
+			
+			<div class="about-sub">
+				<div class="col-md-12 about_bottom_left">
+					<h4>M<span>aths </span>
+					    S<span>pecialist</span>
+						T<span>eacher</span>
+					</h4>
+					<p>Carisbrook School employ a part time mathematics specialist teacher, Ann Ruxton to provide support and extension programmes for groups 
+					of students in identified areas. We have seen great results from this initiative both in academic achievement and in the positive attitude 
+					towards maths. The accelerated maths programmes provide  students with additional maths sessions each week focussing on the identified areas
+					of need. Students remain in the MST programme until they have met their targets. </p>					
+				 </div>
+				<div class="clearfix"> </div>
+			</div>
+			
+			<div class="about-sub">
+				<div class="col-md-12 about_bottom_left">
+					<h4>A<span>LL </span>
+						P<span>rogramme </span>
+					</h4>
+					<p>In 2018 Accelerated Learning in Literacy programme is a short term intervention that aims to provide support to boost  student''s 
+					achievement. This fifteen week intervention is Ministry of Education funded and provides identified students with additional literacy 
+					lessons each week for the fifteen week programme. This intervention programmes will start in Term 2, 2018. </p>					
+				 </div>
+				<div class="clearfix"> </div>
+			</div>			
+			<div class="about-sub">
+				<div class="col-md-12 about_bottom_left">
+					<h4> R<span>eading </span>
+					     O<span>asis</span>
+						 P<span>rogramme </span>
+					</h4>
+					<p>We operate this programme in conjunction with United Way who have provided the furnishings and reading material for this programme. 
+					  Three groups of eight students participate in this programme on a Tuesday and Thursday morning.The Reading Oasis Tutors are University of
+					  Otago volunteers who provide the students with the opportunity to be read to as well as 
+					  reading with the tutors.</p>					
+				 </div>
+				<div class="clearfix"> </div>
+			</div>			
+			
+		</div>
+	</div>
+	
+', N'learning', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-21T06:54:20.437' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (7, 3, N'Achivements', N'<div class="aitsresumethree">
+        <div class="container">
+            <div class="title-div">
+                <h3 class="tittle">
+                    <span>O</span>ur
+					<span>A</span>chievements
+                </h3>
+                <div class="tittle-style">
+
+                </div>
+            </div>
+            <div class="load_more">
+                <ul id="myList">
+                    <li class="aitsaitsresumewthreeli-1">
+                        <div class="l_g">
+                            <div class="l_g_r g_r">
+                                <div class="work">
+                                    <div class="work-info">
+                                        <div class="col-xs-6 work-grid work-left">
+
+
+                                            <img src="../../Assets/images/Achivement/warriorsvisit.jpg" class="img-responsive" alt="warriorsvisit" style="width:460px;height:280px;margin-left: 17%;position: absolute;">
+
+                                            <h4 style="">2014</h4>
+                                        </div>
+                                        <div class="col-xs-6 work-grid work-right">
+                                            <h5>Warriors Visit Carisbrook School</h5>
+                                            <p>
+                                                We were very lucky to have the Warriors as special guests at our School Assembly on
+                                                Friday 21st February 2014. Players Manu Vatuvei, Thomas Leuluai, Dane Nielson and Ben Henry entertained our students with role play
+                                                a quick fire quiz and the presentation of achievement awards to students.
+                                                The Warriors are sponsors of ''Kidscan'' which is an organisation that has been a great supporter of Carisbrook School.
+                                            </p>
+
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="work-info">
+                                        <div class="col-xs-6 work-grid work-right work-right2">
+
+                                            <img src="../../Assets/images/Achivement/MaggiCookingComp.jpg" class="img-responsive" alt="CookingCompeition" style="margin-left:1px;width:460px;height:280px;position: absolute;">
+                                            <h4>2013</h4>
+                                        </div>
+                                        <div class="col-xs-6 work-grid work-left work-left2">
+                                            <h5>Maggi Cooking Competition</h5>
+                                            <p>
+                                                Miss Ruxton followed up on her passion for food technology by entering Carisbrook school into the national ''Maggi Bake Off''.
+                                                Misss Ruxton organised a baking competition for teams of our senior students at Carisbrook School. The competition was tough but a team was selected to represent our school at the local competition.
+                                                The team placed well and went on to compete in the Regional finals at christchurch. A fantastic opportunity for our students and one which they won''t forget.
+                                            </p>
+
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="work-info">
+                                        <div class="col-xs-6 work-grid work-left">
+
+                                            <img src="../../Assets/images/Achivement/roadpatrol.jpg" class="img-responsive" alt="RoadPetrol" style="margin-left:17%;width:460px;height:280px;position: absolute;">
+                                            <h4>2015</h4>
+                                        </div>
+                                        <div class="col-xs-6 work-grid work-right">
+                                            <h5 class="comp"> Road Patrol Starts at Carisbrook School</h5>
+                                            <p>
+                                                Road Patrol has started on South Road. A team of Year 6 - 8 students received training from
+                                                our Police Education Officer in week 1 of 2015. Road Patrol provides opportunities for students to develop their
+                                                leadership and take on a role of responsibility at our school.Emily Wilden on Road Patrol, helping keep our students safe on Monday 16th February 2015.
+                                            </p>
+
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                    <div class="work-info">
+                                        <div class="col-xs-6 work-grid work-right work-right2">
+
+                                            <img src="../../Assets/images/Achivement/flashmob2013.jpg" class="img-responsive" alt="Flashmob" style="margin-left:1px;width:460px;height:280px;position: absolute;">
+                                            <h4>2013</h4>
+                                        </div>
+                                        <div class="col-xs-6 work-grid work-left work-left2">
+                                            <h5>Flashmob Octagon</h5>
+                                            <p>
+                                                Miss Lawless had her Hip Hop students participate in a Sport of Otago organised flashmob held in the Octagon.
+                                                The Carisbrook Hip Hop team were responsible for organising the flashmob dance and lead the moves in the Octagon.
+                                                The students were very excited and enjoyed watching themselves on television that night.
+                                            </p>
+
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>', N'achive', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-21T07:58:02.903' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (9, 3, N'SchoolCare', N' <div class="about-sec" id="about">
+  <div class="container">
+     <div class="title-div">
+        <h3 class="tittle" style="font-size:40px;">
+         <span>B</span>efore
+	     <span>S</span>chool 
+	     <span>C</span>are
+	    </h3>    
+     </div>
+     <div class="about-sub">
+       <div class="col-md-12 about_bottom_left">     
+           <p><span>''Before School Care''</span> operates at Carisbrook Main Site and opens each school morning from 7.30am and operates until 8.30am.
+               The ''Before School Care'' is located in the After School Care room. Breakfast can be provided to students attending the Before School Programme.
+               The supervisor for our Before School Care is Sharon Hollander. Enrolment forms, prices and information can be obtained from Kellie at our School Office.
+	       </p>     
+       </div>   
+     </div>
+ 
+   <div class="title-div">
+    <h3 class="tittle" style="font-size:40px;">
+     <span>A</span>fter
+	 <span>S</span>chool 
+	 <span>C</span>are
+    </h3>    
+   </div>
+   <div class="about-sub">
+    <div class="col-md-12 about_bottom_left">     
+     <p>''After School Care'' operates at  Carisbrook  and is Oscar Approved for 30 students. ''After School Care'' is located in the ''After School Care'' classroom located near the Surrey Street entrance. 
+        ''After School Care'' is available from 3.00pm until 5.30pm daily. Enrolment forms, prices and information can be obtained from Kellie at our School Office.
+         The supervisor for our After School Programme is Anna McCauley.</p>      
+    </div>   
+   </div>
+
+
+   <div class="title-div">
+     <h3 class="tittle" style="font-size:40px;">
+      <span>H</span>oliday 
+	  <span>P</span>rogramme
+     </h3>    
+   </div>
+   <div class="about-sub">
+    <div class="col-md-12 about_bottom_left">     
+     <p>Carisbrook School are provides a Holiday Programme  which operates at  Carisbrook Main Site and is Oscar approved 
+        for 30 students. ''Holiday Programme'' is located in the ''After School Care'' classroom located near the Surrey Street entrance.
+        The ''Holiday Programme'' is available from 8.00am until 5.30pm daily. 
+        The Holiday Programme has proved very popular with the attendees. There were many excursions into the wider community. 
+         Students got guided tours through the Central Fire Station, Army Hall and had many excursions to local beaches and other 
+        attractions. The supervisor for our After School Programme is Anna McCauley.
+        Enrolment forms, prices and information can be obtained from Kellie at our School Office. </p>      
+    </div>   
+   </div>
+  </div>
+ </div>', N'care', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (10, 3, N'Property', N'	<div class="about-sec" id="about">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>P</span>roperty 
+					<span>P</span>rojects					
+				</h3>
+				<div class="tittle-style" style="margin-left:20px;"><br/><br/>	
+				 <h4>Carisbrook School is designed as a modern learning environment and is being used as an example for the development of
+				 other <br/>schools throughout New Zealand.</h4>
+				
+				</div>
+			</div>
+			<div class="about-sub">
+				<div class="col-md-6 about_bottom_left">
+									
+					<p>We currently have three property projects underway here at Carisbrook School. 
+					   Our swimming pool heating plant has been replaced with a new heat pump system that is faster and more efficient. 
+					   The project is completed but we awaiting a sign off from the Ministry of Education.
+					
+					<br/>We have been awaiting the construction of our new Food Technology Room and it is hoped that this will be completed 
+					   by the end of term three 2018. One of the classrooms in our senior block will be transformed into a modern food preparation area. 
+					</p>
+					<p>
+					The third property project underway is the Carisbrook fencing project. The drawings are completed and we are awaiting Ministry of Education
+					approval of the plan before the project goes out to tender.The project will result in modern metal fencing around the boundary of the school 
+					and new gates at all entrances. 
+					</p>
+				</div>
+				
+				<div class="col-md-6 about2-info">
+					 <img src="../../Assets/images/img/Property3.jpg" alt="" title="Our Property" />
+				</div>
+				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+
+	
+	    ', N'property', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (11, 4, N'Sport', N'<div class="blog-cource">
+  <div class="container">
+   <div class="title-div">
+     <h3 class="tittle">
+      <span>S</span>port
+    </h3>
+      <div class="tittle-style"> </div>
+   </div>
+   <div class="blog-info">
+    <div class="col-xs-4 blog-grid-img">
+     <img src="../../Assets/images/sports/miniball1.jpg" class="img-responsive" alt="miniball" />
+    </div>
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Miniball Term-2&3</h4>
+     <p>Miniball is a popular sport at Carisbrook. A previous years senior miniball team displays the Carisbrook miniball uniforms.
+        Our basketball court is a popular venue at breaks with students taking the opportunity to shoot hoops. 
+      The Dunedin miniball competition takes place in terms 2 and 3 and is held at the Edgar Centre.
+      A notice will go home to parents later this term with information about the 2016 miniball competitions.
+      (Below) Miniball coaching sessions were held for all classes and taught by Otago Nuggets players.</p>
+     
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+
+   <br/>
+   <div class="blog-agileinfo blog-info-mdl">
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Cross Country</h4>     
+     <p>Carisbrook School holds an annual cross country for the Middle Team and Senior Team students.
+        Our top cross country runners are then selected to compete in the Ariki Cup teams event and the Otago Cross country
+        Champs for individuals.(Left)Senior team runners from previous years.(Right) Mitch nears the finish line in the 2014 
+       Year 5 & 6 event.</p>
+    </div>
+    <div class="col-xs-4 blog-grid-img blog-img-rght">
+     <img src="../../Assets/images/sports/crosscountry.jpg" class="img-responsive" alt="crosscountry" />
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+   
+   <br/>
+   <div class="blog-info">
+    <div class="col-xs-4 blog-grid-img">
+     <img src="../../Assets/images/sports/edgarcenter.jpg" class="img-responsive" alt="edgar" />
+    </div>
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Edgar Centre Sports Days</h4>
+     <p>Each year Carisbrook students get the opportunity to attend the Edgar Sports days organised by the Sports Institute of Otago. 
+        The Sports Institute trainees provide our students with sports coaching and activities in a wide variety of sports. </p>
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+   
+   <br/>
+   <div class="blog-agileinfo blog-info-mdl">
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Cycle Skills Course - Term 1</h4>
+     <p>The ''Cycle Skills'' programme will be for our Year 5 students this year.
+        Students are trained onsite before participating in some on road cycling around South Dunedin. 
+        A cycle fun day is held at the end of the course where our students experience mountain biking and BMXing at Forrester Park.</p>
+    </div>
+    <div class="col-xs-4 blog-grid-img blog-img-rght">
+     <img src="../../Assets/images/sports/cycleskills.jpg" class="img-responsive" alt="cycle" />
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+   
+   <br/>
+   <div class="blog-info">
+    <div class="col-xs-4 blog-grid-img">
+     <img src="../../Assets/images/sports/ripparugby.jpg" class="img-responsive" alt="Rippa" />
+    </div>
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Rippa Rugby - Term 1 & 4</h4>
+     <p>The Rippa Rugby competition is held in Terms 1 & 4 at the Edgar Centre.  There are three competitions; Year 3 & 4, Year 5 & 6, and Year 7 & 8.
+        The competition is held on Monday afternoons. Interested students received information and permission slips  in Week 3. </p>
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+   
+   <br/>
+   <div class="blog-agileinfo blog-info-mdl">
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Netball - Term 2 & 3</h4>
+     <p>The Netball competition runs in Terms 2 & 3 and is also held at the Edgar Centre.
+        There are three competitions; Year 3 & 4, Year 5 & 6, and Year 7 & 8.
+        Information and permission slips will be sent home in week 8 of Term One.</p>
+    </div>
+    <div class="col-xs-4 blog-grid-img blog-img-rght">
+     <img src="../../Assets/images/sports/netball.jpg" class="img-responsive" alt="Netball" />
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+  </div>
+ </div>', N'sport', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (12, 4, N'Art', N'<div class="blog-cource">
+  <div class="container">
+   <div class="title-div">
+     <h3 class="tittle">     
+       <span>C</span>ulture
+    </h3>
+     <div class="tittle-style">    </div>
+   </div>
+   <div class="blog-info">
+    <div class="col-xs-4 blog-grid-img">
+     <img src="../../Assets/images/Arts/dance.jpg" class="img-responsive" alt="Choir" />
+    </div>
+    <div class="col-xs-8 blog-grid-text">
+     <h4> Choir</h4>
+     <p>Carisbrook School Choir rehearse on Tuesday lunchtimes at Carisbrook Dance Studio. 
+	    Choir teacher Rachael Lawless takes responsibility for the choir. 
+	    The choir will be performing for some of our local pre-schools and other community groups throughout the year. </p>     
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+   
+   <br/>
+   <div class="blog-agileinfo blog-info-mdl">
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Hip Hops</h4>     
+     <p> Carisbrook School had two Hip Hops groups operating in 2017. Hip Hop teams have performed at School school assemblies last year.
+     	 In 2018 our Hip Hoppers will receive training from Carisbrook teachers Litea Ratten and Xzenia Witehira.</p>
+    </div>
+    <div class="col-xs-4 blog-grid-img blog-img-rght">
+     <img src="../../Assets/images/Arts/hiphop.jpg" class="img-responsive" alt="HipHop" />
+    </div>
+    <div class="clearfix"> </div>
+   </div>   
+   
+   <br/>
+   <div class="blog-info">
+    <div class="col-xs-4 blog-grid-img">
+     <img src="../../Assets/images/Arts/kapahaka.jpg" class="img-responsive" alt="KapaHaka" />
+    </div>
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Kapa Haka</h4>
+     <p>Kapa Haka is another very popular performing art at Carisbrook School with a large number of students participating in this performing arts group.
+	 In 2018 Carisbrook Kapa Haka Tutor Nick Price will lead Kapa Haka. The Carisbrook Kapa Haka Group rehearse weekly and this performing art is offered all 
+	 year round. The Kapa Haka Group is made up of students from Year 1 through to Year 8 and will perform on several occasions this year including the opening 
+	 the Otago Polyfest.</p>
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+     
+    <br/>	 
+   <div class="blog-agileinfo blog-info-mdl">
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Dance Skills </h4>
+     <p>Carisbrook School has been a keen participant in ''Dancing like the Stars'' programme in previous years.  
+	 If the opportunity arises we will definitely participate in this activity again.
+     Indian Classical Dance:
+	 Swaroopa Unni from the *Natyaloka* School of Indian Classical Dance trained up a group of enthusiastic Year 5-8 students in this form of traditional Indian dance. 
+	 The students were very enthusiastic and had been practising several times a week in preparation for their performance.
+     Irish Dancing:
+       We had a keen group of  students who had taken up the challenge of learning Irish dancing and rehearsed regularly for the ''Dancing like the Stars''
+	   performance. We had the expertise of Irish dance teacher Kathryn Olcott to train up our Carisbrook School Irish dancers</p>
+    </div>
+    <div class="col-xs-4 blog-grid-img blog-img-rght">
+     <img src="../../Assets/images/Arts/dance.jpg" class="img-responsive" alt="Dance" />
+    </div>
+    <div class="clearfix"> </div>
+   </div>
+   
+   <br/>
+   <div class="blog-info">
+    <div class="col-xs-4 blog-grid-img">
+     <img src="../../Assets/images/Arts/pecifica.jpg" class="img-responsive" alt="Pasifika" />
+    </div>
+    <div class="col-xs-8 blog-grid-text">
+     <h4>Pasifika Performance</h4>
+     <p>Pasifika performance is very popular at Carisbrook School with a large number of students participating in this performing arts group.
+	    The Carisbrook Pasifika Cultural Group practice on a weekly basis. The Pasifika Cultural Group is made up of students from Year 1 through to Year 8. 
+	    The Pasifika Cultural Group tutor is Carisbrook teacher Mrs Litea Ratten.
+        Our dancers and drummers have performed to many local pre-schools and for the Otago Polytechnic each year.</p>
+    </div>
+    <div class="clearfix"> </div>
+    </div>
+  </div>
+</div>', N'art', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (13, 4, N'Camps', N'<div class="blog-cource">
+  <div class="container">
+     <div class="title-div">
+        <h3 class="tittle">
+         <span>C</span>amps		 
+	    </h3>    
+		<div class="tittle-style"> </div>
+     </div>
+	 
+	 <div class="about-sub">    
+<div class="col-md-12 about_bottom_left">
+  <p>Camps are a highlight of school for many students. At Carisbrook School we provide an extensive EOTC / Camp programme that starts at New Entrant level. 
+	Parent and caregiver assistance may be required at some of the school camps. </p>
+</div>    
+    <div class="clearfix"> </div>
+</div>
+			<div class="grid_3 grid_5 wthree">
+				<div class="col-md-8 agileits-w3layouts">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Classes</th>
+								<th>Dates</th>
+								<th>Venue</th>
+							</tr>
+						</thead>
+						<tbody <span style="color:#808B96;">
+							<tr>
+								<td> Year 7 Camp</td>
+								<td> Tuesday 9th – Friday 12th February</td>
+								<td> Berwick</td>
+							</tr>
+							<tr>
+								<td> Year 6 Camp</td>
+								<td> Tuesday 23rd – Friday 26th February</td>
+								<td> Waianakarua</td>
+							</tr>
+							<tr>
+								<td> Year 5 Camp</td>
+								<td> Tuesday 10th - Friday 12th February</td>
+                                <td>  Waiora</td>
+							</tr>
+							<tr>
+								<td> Year 4 Camp</td>
+								<td>Thursday 20th - Friday 21st October</td>
+								<td> Tirohanga</td>
+							</tr>
+							<tr>
+								<td> Year 3 Camp</td>
+								<td>Thursday 27th - Friday 28th October</td>
+								<td>Tahuna Motor Camp</td>
+							</tr>
+							<tr>
+								<td> Year 2 Camp</td>
+								<td> Thursday 11th - Thursday 18th August</td>
+								<td>Museum</td>
+							</tr>
+							<tr>
+								<td> Year 0/1 Camp</td>
+								<td> Term 4 tba</td>
+								<td> School</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-4 w3-agileits"> </div>
+				<div class="clearfix"> </div>
+			</div>
+
+</div>
+</div>
+
+
+
+ 
+
+ 
+
+                                                                                 
+
+   ', N'camp', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-24T14:59:33.710' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (14, 4, N'ExtraActivity', N'<div class="about-sec" id="about">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>E</span>xtra
+					<span>A</span>ctivities
+				</h3>
+				<div class="tittle-style"><br/><br/>
+                  <p>There are many extra opportunities for the children to become involved with activities that are run out of school hours by staff or parents. 
+						Some of these include Rippa Rugby, Miniball, T-Ball, Netball, Futsal and Choir. Details including costings will be sent out in newsletters.</p>
+				
+				</div>
+			</div>
+			<div class="about-sub" style="margin-top:50px;">
+				<div class="col-md-6 about_bottom_left">
+					<h4>S<span>wimming</span></h4>
+					<p>All children will have swimming and aquatics teaching as part of the school programme. 
+					If children are to be excused for medical reasons a note must be sent to the classroom teacher.
+					Our pool is operated to very strict health guidelines and we put emphasis on learning ‘Swimsafe’
+					techniques and water safety, so please make sure your child has their swimming togs and towel on swimming days.<br/> 					
+					<span style="color:black; font-size:20px; font-weight:600;">Juniors,Middle and Senior</span> swimming is held at main site in Term 4 and instruction is provided by Jill Clark Swim School.</p> 
+
+				</div>				
+				<div class="col-md-6 about2-info">
+					<img src="../../Assets/images/img/swimming.jpg" alt="" />
+				</div>				
+				<div class="clearfix"> </div>
+			</div>
+			<div class="about-sub">
+			   <div class="col-md-12 about_bottom_left" style="margin-top:50px;">
+				 	<h4>A<span>ssemblies</span></h4>
+					<p>We have various types of assemblies. Assemblies are a great opportunity for students to share their work and skills and to develop their 
+					skill of public speaking. School Assemblies are run by students.  Two  ‘Whole  School   Assemblies’  are  scheduled for each term. These will 
+					incorporate Duffy Assemblies where possible.Additional Whole School Assemblies may be required for special occasions or events. Whole School Assemblies
+					are scheduled for Friday’s commencing at 2:20 pm.</p>					
+			   </div>	 
+				<div class="clearfix"> </div>
+			</div>				
+			<div class="about-sub" style="margin-top:50px;">
+				<div class="col-md-6 about_bottom_left">				
+					<h4>D<span>uffy</span>
+					B<span>ooks</span> in
+					H<span>ome</span>
+					P<span>rogramme</span>
+					</h4>
+					<p>In Terms 1, 2 & 3 students will receive two free books from the Duffy Books in Homes Programme. 
+					  This programme is funded by Scholastic NZ and our Board of Trustees. The book selection will arrive early each term and each class 
+					  will be timetabled to view the books.</p>				 
+               	</div>			
+				<div class="col-md-6 about2-info" >
+					<img src="../../Assets/images/img/Duffybook1.jpg" alt="" />
+				</div>				
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+	</div>
+', N'activity', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (15, 5, N'Enrollment', N' <div class="about-sec" id="about">
+  <div class="container">
+     <div class="title-div">
+        <h3 class="tittle">
+         <span>E</span>nrollment
+		 <span>I</span>nformation
+	    </h3>    
+		<div class="tittle-style"> </div>
+     </div>
+    <div class="about-sub">
+       <div class="col-md-12 about_bottom_left" style="margin-top:50px;">   
+        <h4>P<span>re-school</span> 
+		    V<span>isits</span></h4>	   
+           <p>We welcome visits to or enquiries from parents of pre-school children. Our preschool school visits are held on Wednesday afternoons
+		   from 1:40 – 3:00pm. The class teachers will organise morning visits for pre-schoolers with  parents  closer  to  the  child’s  5th birthday.
+		   </p>     
+       </div>   
+	   <div class="clearfix"> </div>
+     </div>
+         
+		    
+            <div class="grid_3 grid_5 wthree" style="margin-top:50px;" >
+              <div class="aitsresumethree">			
+                <div class="col-md-6 agileits-w3layouts">
+		     	   <table class="table table-bordered">
+						<thead>
+						 <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Carisbrook School Daily Timetable</span></th>
+						</thead>              
+                       	<tbody>
+							<tr>
+								<td>School Commences </td>
+								<td>9.00 am </td>
+							</tr>
+							<tr>
+								<td>Morning Break </td>
+								<td>11.00 am </td>
+							</tr>
+							<tr>
+								<td>Second Session Commences </td>
+								<td>11.30 am </td>
+							</tr>
+							<tr>
+								<td>Lunch </td>
+								<td>12.50 pm </td>
+							</tr>
+							<tr>
+								<td>Afternoon Session Commences	</td>
+								<td>1.40 pm	</td>
+							</tr>
+							<tr>
+								<td>School Finishes </td>
+								<td>3.00 pm	</td>
+							</tr>
+							<th colspan="2">* As staff are not on duty before 8.30am, children are asked not to arrive at school before this time.</th>
+						</tbody>
+					</table>
+			    </div>
+				<div class="col-md-6 agileits-w3layouts">
+		     	   <table class="table table-bordered">
+						<thead>
+						 <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Carisbrook School Term Dates 2018</span></th>
+						</thead>              
+                       	<tbody>
+							<tr>
+								<td>Term 1  </td>
+								<td>7th Feb To 13th April </td>
+							</tr>
+							<tr>
+								<td>Term 2 </td>
+								<td>30th April To 6th July </td>
+							</tr>
+							<tr>
+								<td>Term 3 </td>
+								<td> 23rd July To 28th September </td>
+							</tr>
+							<tr>
+								<td>Term 4 </td>
+								<td>15th October To 20th December @3.00pm </td>
+							</tr>					
+						</tbody>
+					</table>
+				 </div>
+				<div class="col-md-6 agileits-w3layouts">
+		     	   <table class="table table-bordered">
+					  <thead>
+						 <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Statutory Holidays 2018</span><br/>
+							 The school will also observe the following statutory holidays during the year:-</th>
+	                  </thead>              
+                       	<tbody>
+							<tr>								
+								<td>Otago Anniversary Day  </td>
+                                <td> Monday 26th March </td>  					
+							</tr>
+							<tr>
+								<td>Good Friday  </td>
+								<td>Friday 30th March  </td>
+							</tr>
+							<tr>
+								<td>Easter Monday </td>
+								<td>  Monday 2nd & 3rd April </td>
+							</tr>
+							<tr>
+								<td>Queen’s Birthday  </td>
+								<td>Monday 4th June  </td>
+							</tr>
+							<tr>
+								<td>Labour Day   </td>
+								<td>Monday 22nd  October  </td>
+							</tr>				
+						</tbody>
+					</table>
+			    </div>		
+                <div class="clearfix"> </div>				
+		    </div>
+		</div>
+	  
+			
+	    <div class="about-sub">
+          <div class="col-md-12 about_bottom_left">   
+            <h4> A<span>ctivities</span> 
+			     F<span>ee</span>			
+			</h4>	   
+             <p>The Activity Fee covers the cost of pupil activities for the year excluding school camps (the costs of school camps vary depending on the 
+			   duration and nature of the camps) and swimming. The activity fee will cover excursions to the Museum, Art Gallery, Edgar Centre, Performances 
+			   and other excursions. Parents will be sent an invoice early in the term. Fees can be paid off throughout the year, including direct credits. 
+			   This can be organised by our administration team.
+			 </p> 
+          </div>  	  
+		         <div class="col-md-6 w3-agileits">
+					<p>The Activity Fees for 2018 are:</p>
+					<table class="table table-bordered">
+					<tr>
+					   <td>1 child </td>
+					   <td>$40.00 per year</td>
+					</tr>
+					<tr>
+					   <td>2 children </td>
+					   <td>$70.00 per year</td>
+					</tr>
+					<tr>
+					   <td>3 children or more</td>
+					   <td>$100.00 per year</td>
+					</tr>
+					
+					</table>
+				</div>
+	            <div class="clearfix"> </div>
+         </div>
+		 
+		 <div class="about-sub">
+			   <div class="col-md-12 about_bottom_left" style="margin-top:50px;">
+				 	<h4>S<span>tationary</span></h4>
+				<p>Stationary packs are available from the School Office or you are welcome to pick up a stationery list and purchase the items elsewhere.</p>					
+			   </div>	 
+				<div class="clearfix"> </div>
+	     </div>
+    
+		  <div class="about-sub">
+             <div class="col-md-12 about_bottom_left" style="margin-top:50px;">   
+              <h4>U<span>niforms</span></h4>
+               <p>Stationary packs are available from the School Office or you are welcome to pick up a stationery list and purchase the items elsewhere.</p>
+             </div>  	  
+		       <div class="col-md-6 w3-agileits">
+				 <table class="table table-bordered">
+					<tr>
+					   <td>Carisbrook T-shirt</td>
+					   <td>Year 1-8</td>					   
+					</tr>
+					<tr>
+					   <td>Polar Fleece Jacket</td>
+					   <td>Year 1-8</td>					   
+					</tr>										
+					</table>					
+			    </div>
+				
+				<div class="col-md-6 w3-agileits">
+				<p><span style="color:#005596;">It is also expected that students wear navy blue or black shorts or track pants as part of the uniform.
+				</span></p>
+				</div>
+				
+				<div class="clearfix"> </div>
+          </div>
+		  		  
+		  <div class="about-sub">
+             <div class="col-md-12 about_bottom_left" style="margin-top:50px;">   
+              <h4>R<span>eporting</span>
+    			  t<span>o</span> 
+			      P<span>arents</span>  		  
+			  </h4>
+               <p>All children will receive two reports each year.  Juniors - after 6 months, 1 year, 18 months, 2 years, 30 months and 3 years at school. 
+				  Year 4 to 8 - written reports are sent to parents in Terms 2 and 4. Parent interviews are organised after the first reports go out but can 
+				  also be arranged with the class teacher as and when needed.</p>
+             </div>  	  
+		       <div class="col-md-12 w3-agileits">
+				 <table class="table">
+					<tr>
+					   <td style="color:#005596; font-weight:600;">Meet the Teacher:-</td>
+					   <td>An opportunity for parents & caregivers to meet the teacher at the start of the school year.</td>					   
+					</tr>
+					<tr>
+					   <td style="color:#005596; font-weight:600;">Written Reports – Mid Year: </td>
+					   <td>These reports will be sent out mid year.</td>					   
+					</tr>	
+					<tr>
+					   <td style="color:#005596; font-weight:600;">Parent-Teacher Interviews: </td>
+					   <td>Parent Teacher Interviews will take place in mid year.</td>					   
+					</tr>
+					<tr>
+					   <td style="color:#005596; font-weight:600;">Written Reports – End of Year:  </td>
+					   <td>These reports will be sent out at the end of year.</td>					   
+					</tr>					
+					</table>					
+			    </div>
+				
+			   <div class="clearfix"> </div>
+          </div>
+		  
+		 
+	</div>
+ </div>
+		 
+		 
+	      ', N'enroll', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-24T15:01:43.937' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (16, 5, N'Newsletter', N'<div class="w3_wthree_agileits_icons main-grid-border" style="padding-bottom:1em;">
+		<div class="container">
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>N</span>ews<span>L</span>etter
+				</h3>
+				<div class="tittle-style"></div>
+			</div>
+
+          <div class="grid_3 grid_4">				
+				<h3 class="page-header icon-subheading">March 2019</h3>
+				<div class="bs-glyphicons">
+					<ul class="bs-glyphicons-list">
+						<li>
+							<span class="glyphicon-class">WEEK-1</span>
+						</li>
+						<li>
+							
+							<span class="glyphicon-class">WEEK-2</span>
+						</li>
+						<li>
+							
+							<span class="glyphicon-class">WEEK-3</</span>
+						</li>
+						<li>
+							
+							<span class="glyphicon-class">WEEK-4</</span>
+						</li>	
+                                      						
+				    </ul>
+				</div>
+		     </div>
+	 </div>
+   </div>	 
+	<div class="w3_wthree_agileits_icons main-grid-border" style="padding-bottom:1em;">
+		<div class="container">
+			 <div class="grid_3 grid_4">				
+				<h3 class="page-header icon-subheading">February 2019</h3>
+				<div class="bs-glyphicons">
+					<ul class="bs-glyphicons-list">
+						<li>
+							<span class="glyphicon-class">WEEK-1</span>
+						</li>
+						<li>
+							
+							<span class="glyphicon-class">WEEK-2</span>
+						</li>
+						<li>
+							
+							<span class="glyphicon-class">WEEK-3</</span>
+						</li>
+						<li>
+							
+							<span class="glyphicon-class">WEEK-4</</span>
+						</li>						
+				    </ul>		
+		</div>
+	 </div>
+   </div>
+ </div>	 
+	 ', N'news', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (17, 5, N'MealProgram', N' <div class="about-sec" id="about">
+  <div class="container">
+     <div class="title-div">
+        <h3 class="tittle">
+         <span>M</span>eal
+		 <span>P</span>rogram
+	    </h3>    
+		<div class="tittle-style"> </div>
+     </div>
+	 
+    <div class="about-sub">
+       <div class="col-md-12 about_bottom_left" style="margin-top:50px;">   
+        <h4>B<span>reakfast</span>
+		    i<span>n </span>
+		    S<span>chool</span></h4>	   
+           <p>Carisbrook School is registered with the “Breakfast in Schools” programme. We have milk donated by Fonterra and Weetbix by Sanitarium. 
+		      If your child would like breakfast they should attend the Breakfast Club held in the kitchen area behind the After School Programme room. 
+		      Breakfast Club operates between 8.30am and 9.00am each morning. 
+		   </p>     
+       </div>   
+	   <div class="clearfix"> </div>
+     </div>         
+		    
+        <div class="about-sub">
+           <div class="col-md-12 about_bottom_left" style="margin-top:40px;">   
+             <h4> F<span>ruit </span>
+                  i<span>n </span> 
+			      S<span>chool</span>			
+		     </h4>	   
+             <p>Carisbrook School is a ‘Fruit in Schools’ school. All students will receive fruit each school day usually starting in week two of each term. 
+			 </p> 
+          </div>  	  
+		   <div class="clearfix"> </div>
+        </div>
+		 
+		 <div class="about-sub">
+			   <div class="col-md-12 about_bottom_left" style="margin-top:40px;">
+				 	<h4>M<span>ilk</span>
+       					i<span>n </span>
+					    S<span>chool</span>					
+					</h4>
+				<p>Fonterra Milk for Schools aims to give all New Zealand primary-aged children the opportunity to enjoy the goodness of dairy every school 
+				    day by offering free milk in schools. Carisbrook is part of this programme.</p>					
+			   </div>	 
+				<div class="clearfix"> </div>
+	     </div>
+		  
+		  		  		  
+	</div>
+ </div>
+		 
+		 
+	      ', N'facility', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (18, 5, N'ParentsCorner', N' <div class="about-sec" id="about">
+  <div class="container">
+     <div class="title-div">
+        <h3 class="tittle">
+         <span>P</span>arents
+		 <span>C</span>orner
+	    </h3>    
+		<div class="tittle-style"> </div>
+     </div>
+	 
+    <div class="about-sub">
+       <div class="col-md-12 about_bottom_left" style="margin-top:50px;">   
+        <h4>C<span>ontact </span>
+		    N<span>umbers</span></h4>	   
+           <p>We often have difficulty contacting parents when children are absent.
+		      Please make sure the school is kept up to date with all phone numbers.  
+			  This is extremely important due to national and local health & safety concerns. 
+		   </p>     
+       </div>   
+	   <div class="clearfix"> </div>
+     </div>              
+		 
+		 <div class="about-sub">
+			   <div class="col-md-12 about_bottom_left" style="margin-top:40px;">
+				 	<h4>A<span>bsences </span>
+					    a<span>nd </span>
+					    S<span>ickness </span>					
+					</h4>
+				<p>If your child is absent from school for any reason, please phone or email the school office before 9.30 am. The school is not equipped to
+     				cater for ill children, so please keep them at home so as not to spread infection. Teachers record pupil attendance twice daily. All 
+					unexplained absences will be followed up by administration staff with parents and caregivers as soon as possible.If we are unable to contact
+					a parent or caregiver to clarify an unexplained absence the child will be marked as Truant.
+				</p>
+                <p><span style="color:black; font-size:20px; font-weight:600;">Truancy Concerns: </span> Class Teachers will monitor attendance / truancy patterns for their class students. Teachers will contact parents / caregivers
+				  if they have any concerns with a pupil’s attendance including lateness. 
+				</p>				
+			   </div>	 
+				<div class="clearfix"> </div>
+	     </div>
+		  
+		  <div class="about-sub">
+           <div class="col-md-12 about_bottom_left" style="margin-top:40px;">   
+             <h4> C<span>ontacting </span>
+			      T<span>eachers</span>			
+		     </h4>	   
+             <p>Close contact between home and school helps with children’s progress.  If you have any concerns about your child’s schooling please contact the classroom teacher about it first.
+    			 Contact may also be made directly with the Principal.</p> 
+          </div>  	  
+		   <div class="clearfix"> </div>
+        </div>
+		
+		<div class="about-sub">
+           <div class="col-md-12 about_bottom_left" style="margin-top:40px;">   
+             <h4> M<span>edication </span>
+			  </h4>	   
+             <p>Occasionally children are required to have medication at school for consumption during the day. If this is the case we ask you to note the following:</p>
+
+              <p> Please advise us in writing of the need to have the medicine at school. (Parents will need to fill out a school based medication form which is available at the office). A parent or caregiver must sign the Medicine
+               Administration Register that we have received any medication and the amount received on drop-off. Please do not send medication along to school with your child.</p> 
+          </div>  	  
+		   <div class="clearfix"> </div>
+        </div>
+		
+		<div class="about-sub">
+           <div class="col-md-12 about_bottom_left" style="margin-top:40px;">   
+             <h4> S<span>afety </span>
+			      V<span>ests</span>			
+		     </h4>	   
+             <p>Each student will be issued with a safety vest by the class teacher if students are taken on an EOTC activity and they feel wearing a vest necessary. 
+			    We recommend you purchase a vest for your child if you want them to wear a vest to school to ensure their safety.</p> 
+          </div>  	  
+		   <div class="clearfix"> </div>
+        </div>
+		  		  		  
+	</div>
+ </div>
+		 
+		 
+	      ', N'parents', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (19, 5, N'Classes', N'<div class="register-form-main">
+<div class="flud-container">
+<div class="title-div">
+</div>
+
+<div class="login-form">
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th colspan="3"><span style="color:#005596; font-size:20px;text-align=center">Classes 2019</span></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th><span style="color:black;">Class</th>
+			<th><span style="color:black;">Teacher</th>
+			<th><span style="color:black;">Year Level </th>
+		</tr>
+		<tr>
+			<td>Huia</td>
+			<td>Mrs Whelan</td>
+			<td>NE/Y1</td>
+		</tr>
+		<tr>
+			<td>Pukeko </td>
+			<td>Miss Lawless</td>
+			<td>NE/Y1</td>
+		</tr>
+					
+		<tr>
+			<td>Korora</td>
+			<td colspan="2">Will Start during Term Two</td>
+			
+		</tr>
+		<tr>
+			<td>Kiwi </td>
+			<td>Miss Taylor</td>
+			<td>Y1</td>
+		</tr>
+		<tr>
+			<td>Tui </td>
+			<td>Mrs Hodges</td>
+			<td>Y2</td>
+		</tr>
+		<tr>
+			<td>Kakapo</td>
+			<td>Mr Renwick</td>
+			<td>Y2</td>
+		</tr>
+		<tr>
+			<td>Weka</td>
+			<td>Mrs Griffiths</td>
+			<td>Y3/Y4</td>
+		</tr>
+		<tr>
+			<td>Ruru</td>
+			<td>Mrs Munro / Mrs Horton</td>
+			<td>Y3/Y4</td>
+		</tr>
+		<tr>
+			<td>Paikea</td>
+			<td>Miss Hamahona / Miss Priemus</td>
+			<td>Y3/Y4</td>
+		</tr>
+		<tr>
+			<td>Kekeno</td>
+			<td>Mr Ratten</td>
+			<td>Y5/Y6</td>
+		</tr>
+		<tr>
+			<td>Wheke</td>
+			<td>Mr Roche</td>
+			<td>Y5/Y6</td>
+		</tr>
+		<tr>
+			<td>Pohutakawa</td>
+			<td>Mrs Kutia</td>
+			<td>Y7/Y8</td>
+		</tr>
+		<tr>
+			<td>Rata</td>
+			<td>Mr Still</td>
+			<td>Y7/Y8</td>
+		</tr>
+		<tr>
+			<td>Rimu</td>
+			<td>Mrs Moors</td>
+			<td>Y7/Y8</td>
+		</tr>
+		
+		
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+', N'class', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-26T21:18:59.813' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (20, 5, N'CanteenMenu', N'<div class="register-form-main">
+		<div class="flud-container" >
+			<div class="title-div">
+				<h3 class="tittle">
+					<span>C</span>anteen
+					<span>M</span>enu
+				</h3>
+				<div class="tittle-style">	</div>
+				
+			</div>
+			<div class="login-form" >
+				<table class="table">
+						<thead>
+						<th colspan="2"><span style="font-size:20px; font-weight:600;">
+						   Please send money in an envelope clearly marked with child’s name and room.  
+				           Whenever possible please send correct amount as we have limited change. The canteen options are:
+				
+						</span></th>
+						 </thead>              
+                       	<tbody>
+						    <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Monday</span></th>
+							<tr>
+								<td> Subway  - Mini or 6 inch  </td>
+								<td> $3.50 or $4.00 </td>
+							</tr>
+							<tr>
+								<td> Choice of - Ham, Turkey, Beef, Salami </td>
+								<td> $3.50 or $4.00</td>
+							</tr>
+							<tr>
+								<td>Choice of - Lettuce, Tomato, Cucumber, Cheese, </td>
+								<td> $3.50 or $4.00 </td>
+							</tr>
+							<tr>
+								<td>Choice of – Mayonnaise or BBQ sauce. </td>
+								<td> $3.50 or $4.00 </td>
+							</tr>
+							<tr>
+								<td>Easy Lunch 	</td>
+								<td> $5.00</td>
+							</tr>
+				   		    <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Tuesday</span></th>
+							  <tr>
+								<td> Domino Pizza-Marlow Pie </td>
+								<td> $3.00 </td>
+							</tr>
+							<tr>
+								<td>  Easy Lunch </td>
+								<td> $5.00</td>
+							</tr>						
+											
+							<th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Wednesday </span></th>
+							<tr>
+								<td> School Canteen  - Marlow Pie  </td>
+								<td> $2.00 </td>
+							</tr>                                                                                         
+							<tr>
+								<td>Hot Bite Noodles – Chicken Flavour </td>
+								<td> $2.00</td>                                                      
+
+							</tr>
+							<tr>
+								<td>Sausage Rolls </td>
+								<td> $1.20 </td>
+							</tr>
+							<tr>
+								<td>Popcorn </td>
+								<td> $1.00 </td>
+							</tr>
+							<tr>
+								<td>Giant Cookies (Chocolate Chip)	</td>
+								<td> $1.30 </td>
+							</tr>					
+							<tr>
+								<td>Calci  Strong  Milk – Chocolate or Strawberry	</td>
+								<td> $1.20 </td>
+							</tr>
+							<tr>
+								<td>Frozen Fruit Juicie </td>
+								<td> $0.80  </td>
+							</tr>
+							<tr>
+								<td>Frozen Milk Moosie </td>
+								<td>  $1.20 </td>
+							</tr>
+							<tr>
+								<td>Tomato Sauce </td>
+								<td> $0.20 </td>
+							</tr>  
+                             <tr>
+								<td>Easy Lunch </td>
+								<td> $5.00 </td>
+							</tr> 	
+							
+                              <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Thursday </span></th>
+							<tr>
+								<td> Rice Ball - Teriyaki, Crispy Chicken or Vegetarian  </td>
+								<td> $3.00 </td>
+							</tr>
+							<tr>
+								<td> Sushi 6 Pack - Teriyaki, Crispy Chicken or Vegetarian  </td>
+								<td> $6.00</td>
+							</tr>
+							<tr>
+								<td>Easy Lunch </td>
+								<td> $5.00 </td>
+							</tr>
+							
+                              <th colspan="2"><span style="color:#005596; font-size:20px; font-weight:600;">Friday </span></th>
+							<tr>
+								<td> Pita Pit (Online only - www.lunchonline.co.nz)  </td>
+								<td> $5.00 </td>
+							</tr>
+							<tr>
+								<td> Easy Lunch </td>
+								<td> $5.00</td>
+							</tr>
+							<th colspan="2">* Options (except Pita Pit) can be ordered at the school office before 9.00am each morning.</th>
+							
+							</tbody>
+					</table>
+			    </div>				
+    	</div>
+	</div>              
+
+   ', N'menu', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (21, 6, N'Gallery', N'<div class="gallery">
+  <div class="container">
+   <div class="title-div">
+    <h3 class="tittle">
+     <span>O</span>ur <span>G</span>allery
+    </h3>
+    <div class="tittle-style">
+
+    </div>
+   </div>
+   <div class="agileinfo-gallery-row">
+    <div class="col-xs-4 w3gallery-grids">
+     <a href="../../Assets/images/g7.jpg" class="imghvr-hinge-right figure">
+      <img src="../../Assets/images/g7.jpg" alt="" title="Our Library" />
+      <div class="agile-figcaption">
+       <h4>Library</h4>
+      </div>
+     </a>
+    </div>
+    <div class="col-xs-4 w3gallery-grids">
+     <a href="../../Assets/images/g9.jpg" class="imghvr-hinge-right figure">
+      <img src="../../Assets/images/g9.jpg" alt="" title="Volleyball Sports" />
+      <div class="agile-figcaption">
+       <h4>Volleyball</h4>
+      </div>
+     </a>
+    </div>
+    <div class="col-xs-4 w3gallery-grids">
+     <a href="../../Assets/images/g3.jpg" class="imghvr-hinge-right figure">
+      <img src="../../Assets/images/g3.jpg" alt="" title="Our Computer Lab" />
+      <div class="agile-figcaption">
+       <h4>Computer Lab</h4>
+      </div>
+     </a>
+    </div>
+    <div class="col-xs-4 w3gallery-grids">
+     <a href="../../Assets/images/g4.jpg" class="imghvr-hinge-right figure">
+      <img src="../../Assets/images/g4.jpg" alt="" title="Meditation" />
+      <div class="agile-figcaption">
+       <h4>Meditation</h4>
+      </div>
+     </a>
+    </div>
+    <div class="col-xs-4 w3gallery-grids">
+     <a href="../../Assets/images/g1.jpg" class="imghvr-hinge-right figure">
+      <img src="../../Assets/images/g1.jpg" alt="" title="Science" />
+      <div class="agile-figcaption">
+       <h4>Science</h4>
+      </div>
+     </a>
+    </div>
+    
+    <div class="col-xs-4 w3gallery-grids">
+     <a href="../../Assets/images/gallery/BikeTrackOpeningIMG_1.jpg" class="imghvr-hinge-right figure">
+      <img src="../../Assets/images/gallery/BikeTrackOpening/IMG_2.jpg" alt="" title="Bike Track Opening" />
+      <div class="agile-figcaption">
+       <h4>Bike Track Opening</h4>
+      </div>
+     </a>
+    </div>
+    
+   
+    <div class="clearfix"> </div>
+   </div>
+  </div>
+ </div>', N'photo', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-10-28T00:00:00.000' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (22, 7, N'ContactUs', N'<div class="banner-bottom-w3l" id="about">  
+    <div class="container">
+        <div class="title-div">
+            <h3 class="tittle">
+                <span>C</span>ontact
+				<span>D</span>etails
+            </h3>
+            <div class="tittle-style">
+
+            </div>
+        </div>
+        <div class="welcome-sub-wthree">
+            <div class="col-md-6 banner_bottom_left">                
+                <p>
+                    <span style="color:black; font-size:20px; font-weight:600;">Carisbrook School - Main Site</span><br/>
+					217 South Road <br/>
+					Caversham<br/>
+					Dunedin 9012<br/>
+					Phone 03 455 8315<br/>
+					Fax 03 4553720<br/>
+					E-mail: office@carisbrook.school.nz
+                </p>				
+				
+            </div>
+           			
+                <div class="col-md-6 contact-w3lsright">
+					<img src="../../Assets/images/img/Contact1.jpg" alt="" style="width:400px; height:380px;" /> 
+				</div>
+            
+               <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+', N'phone', 1, CAST(N'2018-10-28T00:00:00.000' AS DateTime), CAST(N'2018-11-24T14:50:16.997' AS DateTime), N'101', N'101')
+GO
+INSERT [dbo].[tblSubMenu] ([Id], [MainMenuId], [MenuName], [MenuText], [MenuDescription], [IsActive], [CreatedDate], [ModifiedDate], [CreatedBy], [ModifiedBy]) VALUES (24, 2, N'PrincipalMsg', N'<div class="aitsresumethree">
+<div class="container">
+<div class="title-div">
+<h3>Our Achievements</h3>
+
+<div class="tittle-style">&nbsp;</div>
+</div>
+
+<div class="load_more">
+<ul>
+	<li>
+	<div class="l_g">
+	<div class="g_r l_g_r">
+	<div class="work">
+	<div class="work-info">
+	<div class="col-xs-6 work-grid work-left"><img alt="warriorsvisit" src="../../Assets/images/Achivement/warriorsvisit.jpg" />
+	<h4>2014</h4>
+	</div>
+
+	<div class="col-xs-6 work-grid work-right">
+	<h5>Warriors Visit Carisbrook School</h5>
+
+	<p>We were very lucky to have the Warriors as special guests at our School Assembly on Friday 21st February 2014. Players Manu Vatuvei, Thomas Leuluai, Dane Nielson and Ben Henry entertained our students with role play a quick fire quiz and the presentation of achievement awards to students. The Warriors are sponsors of &#39;Kidscan&#39; which is an organisation that has been a great supporter of Carisbrook School.</p>
+	</div>
+
+	<div class="clearfix">&nbsp;</div>
+	</div>
+
+	<div class="work-info">
+	<div class="col-xs-6 work-grid work-right work-right2"><img alt="CookingCompeition" src="../../Assets/images/Achivement/MaggiCookingComp.jpg" />
+	<h4>2013</h4>
+	</div>
+
+	<div class="col-xs-6 work-grid work-left work-left2">
+	<h5>Maggi Cooking Competition</h5>
+
+	<p>Miss Ruxton followed up on her passion for food technology by entering Carisbrook school into the national &#39;Maggi Bake Off&#39;. Misss Ruxton organised a baking competition for teams of our senior students at Carisbrook School. The competition was tough but a team was selected to represent our school at the local competition. The team placed well and went on to compete in the Regional finals at christchurch. A fantastic opportunity for our students and one which they won&#39;t forget.</p>
+	</div>
+
+	<div class="clearfix">&nbsp;</div>
+	</div>
+
+	<div class="work-info">
+	<div class="col-xs-6 work-grid work-left"><img alt="RoadPetrol" src="../../Assets/images/Achivement/roadpatrol.jpg" />
+	<h4>2015</h4>
+	</div>
+
+	<div class="col-xs-6 work-grid work-right">
+	<h5>Road Patrol Starts at Carisbrook School</h5>
+
+	<p>Road Patrol has started on South Road. A team of Year 6 - 8 students received training from our Police Education Officer in week 1 of 2015. Road Patrol provides opportunities for students to develop their leadership and take on a role of responsibility at our school.Emily Wilden on Road Patrol, helping keep our students safe on Monday 16th February 2015.</p>
+	</div>
+
+	<div class="clearfix">&nbsp;</div>
+	</div>
+
+	<div class="work-info">
+	<div class="col-xs-6 work-grid work-right work-right2"><img alt="Flashmob" src="../../Assets/images/Achivement/flashmob2013.jpg" />
+	<h4>2013</h4>
+	</div>
+
+	<div class="col-xs-6 work-grid work-left work-left2">
+	<h5>Flashmob Octagon</h5>
+	&lt;
+
+	<p>Miss Lawless had her Hip Hop students participate in a Sport of Otago organised flashmob held in the Octagon. The Carisbrook Hip Hop team were responsible for organising the flashmob dance and lead the moves in the Octagon. The students were very excited and enjoyed watching themselves on television that night.</p>
+	</div>
+
+	<div class="clearfix">&nbsp;</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</li>
+</ul>
+</div>
+</div>
+</div>
+', N'msg', 1, CAST(N'2018-11-18T09:49:56.340' AS DateTime), CAST(N'2018-11-24T21:17:39.937' AS DateTime), N'101', N'101')
+GO
+SET IDENTITY_INSERT [dbo].[tblSubMenu] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+GO
+INSERT [dbo].[Users] ([Id], [UserTypeId], [FirstName], [LastName], [Email], [PhoneNumber], [WorkPhone], [UserName], [SaltKey], [PasswordHash], [DefaultPassword], [LastLoginDate], [IsOnLine], [AccountStatus], [ReportingTo], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn], [IsActive], [IsDeleted], [AssignedRegionId]) VALUES (1, 1, N'Admin', N'Admin', N'admin@admin.com', NULL, NULL, NULL, NULL, N'21232f297a57a5a743894a0e4a801fc3', 0, CAST(N'2019-03-17T23:56:22.950' AS DateTime), 1, 1, NULL, NULL, CAST(N'2018-01-31T23:40:11.900' AS DateTime), NULL, NULL, 1, 0, NULL)
+GO
+INSERT [dbo].[Users] ([Id], [UserTypeId], [FirstName], [LastName], [Email], [PhoneNumber], [WorkPhone], [UserName], [SaltKey], [PasswordHash], [DefaultPassword], [LastLoginDate], [IsOnLine], [AccountStatus], [ReportingTo], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn], [IsActive], [IsDeleted], [AssignedRegionId]) VALUES (2, 2, N'Driver', N'driver', N'driver@driver.com', N'9026457896', NULL, NULL, NULL, N'21232f297a57a5a743894a0e4a801fc3', 0, CAST(N'2018-01-31T23:43:33.280' AS DateTime), 1, 1, 1, 1, CAST(N'2018-01-31T23:42:06.370' AS DateTime), 1, CAST(N'2018-06-06T14:56:47.337' AS DateTime), 1, 0, NULL)
+GO
+INSERT [dbo].[Users] ([Id], [UserTypeId], [FirstName], [LastName], [Email], [PhoneNumber], [WorkPhone], [UserName], [SaltKey], [PasswordHash], [DefaultPassword], [LastLoginDate], [IsOnLine], [AccountStatus], [ReportingTo], [CreatedBy], [CreatedOn], [ModifiedBy], [ModifiedOn], [IsActive], [IsDeleted], [AssignedRegionId]) VALUES (3, 2, N'Test2', N'Driver', N'Test2driver@tms.com', N'8767897890', NULL, NULL, NULL, N'0e7517141fb53f21ee439b355b5a1d0a', 0, CAST(N'2018-03-12T19:39:15.357' AS DateTime), 0, 1, 1, 1, CAST(N'2018-03-12T19:38:38.227' AS DateTime), 1, CAST(N'2018-06-06T14:57:15.747' AS DateTime), 1, 0, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+SET IDENTITY_INSERT [dbo].[UserTypes] ON 
+GO
+INSERT [dbo].[UserTypes] ([Id], [Name], [Code], [CreatedOn], [IsActive]) VALUES (1, N'Admin', N'Admin', CAST(N'2018-01-31T23:40:11.807' AS DateTime), 1)
+GO
+INSERT [dbo].[UserTypes] ([Id], [Name], [Code], [CreatedOn], [IsActive]) VALUES (2, N'Driver', N'Driver', CAST(N'2018-01-31T23:40:11.883' AS DateTime), 1)
+GO
+SET IDENTITY_INSERT [dbo].[UserTypes] OFF
+GO
+ALTER TABLE [dbo].[mtbAlbum] ADD  CONSTRAINT [DF__mtbAlbum__isactive]  DEFAULT ((1)) FOR [IsActive]
+GO
+ALTER TABLE [dbo].[mtbAlbum] ADD  CONSTRAINT [DF__mtbAlbum__CreatedDate]  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+ALTER TABLE [dbo].[mtbAlbum] ADD  CONSTRAINT [DF__mtbAlbum__ModifiedDate]  DEFAULT (getdate()) FOR [ModifiedDate]
+GO
+ALTER TABLE [dbo].[tblGallery] ADD  CONSTRAINT [DF__tblGallery__isactive]  DEFAULT ((1)) FOR [IsActive]
+GO
+ALTER TABLE [dbo].[tblGallery] ADD  CONSTRAINT [DF__tblGallery__CreatedDate]  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+ALTER TABLE [dbo].[tblGallery] ADD  CONSTRAINT [DF__tblGallery__ModifiedDate]  DEFAULT (getdate()) FOR [ModifiedDate]
+GO
+ALTER TABLE [dbo].[tblSubMenu]  WITH CHECK ADD  CONSTRAINT [FK_tblSubMenu_tblMenu] FOREIGN KEY([MainMenuId])
+REFERENCES [dbo].[tblMenu] ([Id])
+GO
+ALTER TABLE [dbo].[tblSubMenu] CHECK CONSTRAINT [FK_tblSubMenu_tblMenu]
+GO
+ALTER TABLE [dbo].[UserDetails]  WITH CHECK ADD  CONSTRAINT [FK__UserDetails__Users__Id] FOREIGN KEY([Id])
+REFERENCES [dbo].[Users] ([Id])
+GO
+ALTER TABLE [dbo].[UserDetails] CHECK CONSTRAINT [FK__UserDetails__Users__Id]
+GO
+ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [FK__UserTypeId__UserType__Id] FOREIGN KEY([UserTypeId])
+REFERENCES [dbo].[UserTypes] ([Id])
+GO
+ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK__UserTypeId__UserType__Id]
+GO
+/****** Object:  StoredProcedure [dbo].[GetGalleryItem]    Script Date: 18/03/2019 3:12:31 a.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+CREATE PROCEDURE [dbo].[GetGalleryItem] 
+@Id as Bigint
+AS
+BEGIN
+SET NOCOUNT OFF;
+If(@Id ='' or @Id=null or @Id=0 )
+				BEGIN
+				select g.id,GalleryName,	GalleryPath,TypeId
+				,	g.IsActive	,g.CreatedDate	,g.ModifiedDate,	g.CreatedBy	,g.ModifiedBy ,m.AlbumName
+				from  tblGallery g join mtbAlbum m on m.id=g.TypeId
+				
+				END
+	else
+		BEGIN
+				select g.id,GalleryName,GalleryPath,TypeId
+				,	g.IsActive	,g.CreatedDate	,g.ModifiedDate,	g.CreatedBy	,g.ModifiedBy ,m.AlbumName
+				from  tblGallery g join mtbAlbum m on m.id=g.TypeId where g.Id=@Id
+				
+					
+				END	
+End
+GO
+USE [master]
+GO
+ALTER DATABASE [CarisbrookDb] SET  READ_WRITE 
+GO

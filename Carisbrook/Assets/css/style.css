@@ -581,9 +581,11 @@ h3.tittle {
 .typo {
     padding: 5em 0;
 }
-
+.team-row-agileinfo {
+    padding-top:5em;
+}
 .services {
-    background: #005596 ;
+    background: #005596;
     text-align: center;
     margin-top: -7em;
 }
@@ -1376,7 +1378,7 @@ li.aitsaitsresumewthreeli-1 {
 }
 
 .team .effectd-caption {
-    padding: 20px;
+    padding: 5px;
     background: #fff;
     -webkit-box-shadow: 0px 2px 3px #ccc;
     -moz-box-shadow: 0px 2px 3px #ccc;
@@ -1388,14 +1390,15 @@ li.aitsaitsresumewthreeli-1 {
 
 .team h4 {
     color: #005596;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .effectd-caption p {
     margin: 4px 0 9px;
+    line-height: 1.2;
 }
 
-.social-lsicon a {
+    .social-lsicon a {
     color: #000;
     padding: 0 7px;
     font-size: 15px;

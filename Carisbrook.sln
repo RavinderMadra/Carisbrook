@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoModel", "DemoModel\Demo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Core", "DemoCore\Demo.Core.csproj", "{267AAC19-34BE-4E2D-A821-177B72BF01DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Carisbrookscript", "Carisbrookscript\Carisbrookscript.csproj", "{1F97AE89-F964-4E00-A18E-825E3B0A1727}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{267AAC19-34BE-4E2D-A821-177B72BF01DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{267AAC19-34BE-4E2D-A821-177B72BF01DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{267AAC19-34BE-4E2D-A821-177B72BF01DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F97AE89-F964-4E00-A18E-825E3B0A1727}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F97AE89-F964-4E00-A18E-825E3B0A1727}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F97AE89-F964-4E00-A18E-825E3B0A1727}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F97AE89-F964-4E00-A18E-825E3B0A1727}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
