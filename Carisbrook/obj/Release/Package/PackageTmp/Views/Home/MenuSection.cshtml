@@ -1,14 +1,16 @@
 ﻿<style>
     li:hover > ul {
         /* On hover, display the next level's menu */
-        display: inline;
+        /*display: inline;*/
+
     }
+
 </style>
 <ul class="nav navbar-nav" id="ulmenulist">
     <li class="active">
         <a href="@Url.Action("Index", "Home")" class="effect-3">Home</a>
     </li>
-    <li class="dropdown">
+    <li class="dropdown" id="dvAboutUs">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             About Us
             <span class="caret"></span>
@@ -32,7 +34,7 @@
             </li>
         </ul>
     </li>
-    <li class="dropdown">
+    <li class="dropdown" id="dvOurSchool">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Our School
             <span class="caret"></span>
@@ -53,7 +55,7 @@
             </li>
         </ul>
     </li>
-    <li class="dropdown">
+    <li class="dropdown" id="dvExtra">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             Extra CurriCulumn
             <span class="caret"></span>
@@ -74,7 +76,7 @@
             </li>
         </ul>
     </li>
-    <li class="dropdown">
+    <li class="dropdown" id="dvGeneral">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             General Info
             <span class="caret"></span>
@@ -84,9 +86,9 @@
             <li>
                 <a href="@Url.Action("OurSchool", "Home",new {id=15 })">Enrollment</a>
             </li>
-            <li>
+            @*<li>
                 <a href="@Url.Action("OurSchool", "Home",new {id=16 })">Newsletter</a>
-            </li>
+            </li>*@
             <li>
                 <a href="@Url.Action("OurSchool", "Home",new {id=17 })">Meal Program </a>
             </li>
@@ -101,15 +103,12 @@
             </li>
         </ul>
     </li>
-    <li>
+    <li id="dvGallery">
         <a href="@Url.Action("Album", "Home")" class="effect-3">Gallery</a>
     </li>
-    <li>
+    <li id="dvContact">
         <a href="@Url.Action("OurSchool", "Home",new {id= 22})" class="effect-3">Contact Us</a>
     </li>
 
 </ul>
-    <script>
-
-        //$('#ulmenulist').append('');
-    </script>
+   

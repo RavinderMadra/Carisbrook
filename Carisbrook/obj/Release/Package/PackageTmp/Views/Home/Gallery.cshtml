@@ -2,7 +2,11 @@
 @{
     ViewBag.Title = "Gallery";
 }
-
+<style>
+    .sl-caption pos-bottom{
+        display:none;
+    }
+</style>
 <div class="gallery">
     <div class="container">
         <div class="title-div">
@@ -20,8 +24,9 @@
                     <a href=@item.GalleryPath class="imghvr-hinge-right figure">
                         <img src=@item.GalleryPath alt="" class="imgclass" title="@item.GalleryPath" />
                         <div class="agile-figcaption">
-                            <h4>@item.GalleryName</h4>
+                           <h4>@item.GalleryName</h4>
                         </div>
+                        
                     </a>
                 </div>
 
@@ -56,6 +61,7 @@
         });
     });
     $(document).ready(function () {
+        $('.sl-caption pos-bottom').removeAttr('style')
         $('.imgclass').click();
     }
     )

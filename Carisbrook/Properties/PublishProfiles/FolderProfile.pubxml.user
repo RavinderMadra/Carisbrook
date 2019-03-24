@@ -2875,10 +2875,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:17:51</publishTime>
     </File>
     <File Include="Assets/css/simplelightbox.min.css">
-      <publishTime>10/18/2018 07:17:51</publishTime>
+      <publishTime>03/18/2019 09:08:19</publishTime>
     </File>
     <File Include="Assets/css/style.css">
-      <publishTime>11/27/2018 17:00:52</publishTime>
+      <publishTime>03/18/2019 02:44:55</publishTime>
     </File>
     <File Include="Assets/fonts/fontawesome-webfont.eot">
       <publishTime>10/18/2018 07:17:51</publishTime>
@@ -2997,6 +2997,126 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/images/g9.jpg">
       <publishTime>10/18/2018 07:17:52</publishTime>
     </File>
+    <File Include="Assets/images/gallery/BikeTrackOpening/IMG_1.jpg">
+      <publishTime>03/10/2019 22:11:57</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/BikeTrackOpening/IMG_2.jpg">
+      <publishTime>03/11/2019 12:28:35</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/BikeTrackOpening/IMG_3.jpg">
+      <publishTime>03/11/2019 12:29:28</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/BikeTrackOpening/IMG_4.jpg">
+      <publishTime>03/11/2019 12:30:43</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/BikeTrackOpening/IMG_5.jpg">
+      <publishTime>03/11/2019 12:31:03</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Camps/IMG_1.png">
+      <publishTime>03/10/2019 22:23:44</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Camps/IMG_2.JPG">
+      <publishTime>03/11/2019 12:36:16</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Camps/IMG_3.JPG">
+      <publishTime>03/11/2019 12:36:36</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Camps/IMG_4.JPG">
+      <publishTime>03/11/2019 12:36:53</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Camps/IMG_5.png">
+      <publishTime>03/11/2019 12:37:15</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/KapaHaka/Photo_1.jpg">
+      <publishTime>03/11/2019 12:45:52</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/KapaHaka/Photo_2.jpg">
+      <publishTime>03/11/2019 12:50:48</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/KapaHaka/Photo_3.jpg">
+      <publishTime>03/11/2019 12:51:18</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/KapaHaka/Photo_4.jpg">
+      <publishTime>03/11/2019 12:51:37</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG.jpg">
+      <publishTime>03/11/2019 11:13:32</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG_1.jpg">
+      <publishTime>09/13/2018 08:17:22</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG_2.jpg">
+      <publishTime>09/13/2018 08:18:22</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG_3.jpg">
+      <publishTime>09/13/2018 08:18:48</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG_4.jpg">
+      <publishTime>09/13/2018 08:18:30</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG_5.jpg">
+      <publishTime>09/13/2018 08:19:26</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/PesificaPerfomance/IMG_6.jpg">
+      <publishTime>09/13/2018 08:19:40</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG.JPG">
+      <publishTime>03/11/2019 12:06:25</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_1.jpg">
+      <publishTime>03/13/2019 09:34:50</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_10.jpg">
+      <publishTime>03/13/2019 09:46:31</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_11.jpg">
+      <publishTime>03/13/2019 09:45:03</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_12.jpg">
+      <publishTime>03/13/2019 10:19:30</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_13.jpg">
+      <publishTime>03/13/2019 09:46:05</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_14.jpg">
+      <publishTime>03/13/2019 09:44:15</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_15.jpg">
+      <publishTime>03/13/2019 09:43:16</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_2.jpg">
+      <publishTime>03/13/2019 09:47:08</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_3.jpg">
+      <publishTime>03/13/2019 10:02:16</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_4.JPG">
+      <publishTime>03/13/2019 09:33:09</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_5.jpg">
+      <publishTime>03/13/2019 09:46:49</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_6.JPG">
+      <publishTime>03/13/2019 09:33:35</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_7.jpg">
+      <publishTime>03/13/2019 09:33:57</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_8.jpg">
+      <publishTime>03/13/2019 09:43:54</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/Singapore/IMG_9.jpg">
+      <publishTime>03/13/2019 09:35:38</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/SwingGroup/IMG.jpg">
+      <publishTime>02/21/2019 11:12:24</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/SwingGroup/IMG2.jpg">
+      <publishTime>02/21/2019 11:57:58</publishTime>
+    </File>
+    <File Include="Assets/images/gallery/SwingGroup/swingclub.png">
+      <publishTime>03/13/2019 10:38:09</publishTime>
+    </File>
     <File Include="Assets/images/graduate.png">
       <publishTime>10/18/2018 07:17:52</publishTime>
     </File>
@@ -3025,13 +3145,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/27/2018 11:50:28</publishTime>
     </File>
     <File Include="Assets/images/img/Property1.jpg">
-      <publishTime>11/22/2018 23:04:55</publishTime>
+      <publishTime>03/10/2019 20:28:10</publishTime>
     </File>
     <File Include="Assets/images/img/Property2.jpg">
       <publishTime>11/22/2018 23:04:55</publishTime>
     </File>
     <File Include="Assets/images/img/Property3.jpg">
       <publishTime>11/22/2018 23:04:55</publishTime>
+    </File>
+    <File Include="Assets/images/img/swimming.jpg">
+      <publishTime>03/17/2019 22:19:30</publishTime>
     </File>
     <File Include="Assets/images/img/writingclub.png">
       <publishTime>11/22/2018 21:59:16</publishTime>
@@ -3045,11 +3168,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/images/Logo_tag.png">
       <publishTime>11/06/2018 07:09:17</publishTime>
     </File>
+    <File Include="Assets/images/PrincipalMsg.jpg">
+      <publishTime>03/17/2019 23:23:57</publishTime>
+    </File>
     <File Include="Assets/images/right.png">
       <publishTime>10/18/2018 07:17:52</publishTime>
     </File>
     <File Include="Assets/images/s1.jpg">
-      <publishTime>10/18/2018 07:17:52</publishTime>
+      <publishTime>03/18/2019 02:19:55</publishTime>
     </File>
     <File Include="Assets/images/s2.jpg">
       <publishTime>10/18/2018 07:17:52</publishTime>
@@ -3061,13 +3187,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:17:53</publishTime>
     </File>
     <File Include="Assets/images/Slider.jpg">
-      <publishTime>11/06/2018 07:09:17</publishTime>
+      <publishTime>02/23/2018 08:57:54</publishTime>
     </File>
     <File Include="Assets/images/Slider1.jpg">
-      <publishTime>11/06/2018 07:09:17</publishTime>
+      <publishTime>05/24/2018 14:59:38</publishTime>
     </File>
     <File Include="Assets/images/Slider2.jpg">
-      <publishTime>11/06/2018 07:09:17</publishTime>
+      <publishTime>11/12/2018 12:30:02</publishTime>
     </File>
     <File Include="Assets/images/Slider3.jpg">
       <publishTime>11/06/2018 07:09:17</publishTime>
@@ -3087,8 +3213,98 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Assets/images/sports/miniball1.jpg">
       <publishTime>10/30/2018 18:53:22</publishTime>
     </File>
+    <File Include="Assets/images/sports/netball.jpg">
+      <publishTime>03/17/2019 22:52:15</publishTime>
+    </File>
     <File Include="Assets/images/sports/Property.jpg">
       <publishTime>11/01/2018 14:07:51</publishTime>
+    </File>
+    <File Include="Assets/images/sports/ripparugby.jpg">
+      <publishTime>03/17/2019 22:31:56</publishTime>
+    </File>
+    <File Include="Assets/images/staff/AnnaTaylor.jpg">
+      <publishTime>03/04/2019 10:21:41</publishTime>
+    </File>
+    <File Include="Assets/images/staff/AnneSwan.jpg">
+      <publishTime>03/04/2019 10:36:39</publishTime>
+    </File>
+    <File Include="Assets/images/staff/Ann_Ruxton.jpg">
+      <publishTime>03/03/2019 23:01:55</publishTime>
+    </File>
+    <File Include="Assets/images/staff/AshMcClenaghan.jpg">
+      <publishTime>03/04/2019 10:37:24</publishTime>
+    </File>
+    <File Include="Assets/images/staff/BenSincock.jpg">
+      <publishTime>03/04/2019 10:39:24</publishTime>
+    </File>
+    <File Include="Assets/images/staff/CarolynHorton.jpg">
+      <publishTime>03/04/2019 10:40:37</publishTime>
+    </File>
+    <File Include="Assets/images/staff/DebbieGriffiths.jpg">
+      <publishTime>03/04/2019 10:41:00</publishTime>
+    </File>
+    <File Include="Assets/images/staff/EmmaAnderson.jpg">
+      <publishTime>03/04/2019 10:41:42</publishTime>
+    </File>
+    <File Include="Assets/images/staff/JaniceBeharrell.jpg">
+      <publishTime>03/04/2019 10:42:53</publishTime>
+    </File>
+    <File Include="Assets/images/staff/JessGregg.jpg">
+      <publishTime>03/04/2019 10:43:20</publishTime>
+    </File>
+    <File Include="Assets/images/staff/JocelynWilson.jpg">
+      <publishTime>03/04/2019 10:43:51</publishTime>
+    </File>
+    <File Include="Assets/images/staff/JohnFitzgibbon.jpg">
+      <publishTime>03/04/2019 10:44:15</publishTime>
+    </File>
+    <File Include="Assets/images/staff/JulieWilson.jpg">
+      <publishTime>03/04/2019 10:44:40</publishTime>
+    </File>
+    <File Include="Assets/images/staff/KarlStill.jpg">
+      <publishTime>03/04/2019 10:45:03</publishTime>
+    </File>
+    <File Include="Assets/images/staff/KatrinaMunro.jpg">
+      <publishTime>03/04/2019 10:45:29</publishTime>
+    </File>
+    <File Include="Assets/images/staff/KellieTaylor.jpg">
+      <publishTime>03/07/2019 11:13:37</publishTime>
+    </File>
+    <File Include="Assets/images/staff/MichaelSmith.jpg">
+      <publishTime>03/04/2019 10:46:27</publishTime>
+    </File>
+    <File Include="Assets/images/staff/RachaelLawless.jpg">
+      <publishTime>03/04/2019 10:46:52</publishTime>
+    </File>
+    <File Include="Assets/images/staff/RobinSimpson.jpg">
+      <publishTime>03/04/2019 10:47:19</publishTime>
+    </File>
+    <File Include="Assets/images/staff/SharonHollander.jpg">
+      <publishTime>03/04/2019 10:47:43</publishTime>
+    </File>
+    <File Include="Assets/images/staff/SophiePriemus.jpg">
+      <publishTime>03/04/2019 10:48:48</publishTime>
+    </File>
+    <File Include="Assets/images/staff/TaniaHodges.jpg">
+      <publishTime>03/04/2019 10:50:05</publishTime>
+    </File>
+    <File Include="Assets/images/staff/TimBarham.jpg">
+      <publishTime>03/04/2019 10:50:37</publishTime>
+    </File>
+    <File Include="Assets/images/staff/TomRenwick.jpg">
+      <publishTime>03/04/2019 10:51:07</publishTime>
+    </File>
+    <File Include="Assets/images/staff/TonyHayward.jpg">
+      <publishTime>03/04/2019 10:51:29</publishTime>
+    </File>
+    <File Include="Assets/images/staff/TonyRoche.jpg">
+      <publishTime>03/04/2019 10:51:54</publishTime>
+    </File>
+    <File Include="Assets/images/staff/TracyMacManus.jpg">
+      <publishTime>03/04/2019 10:52:19</publishTime>
+    </File>
+    <File Include="Assets/images/staff/XzeniaKutia.jpg">
+      <publishTime>03/04/2019 10:53:02</publishTime>
     </File>
     <File Include="Assets/images/t1.jpg">
       <publishTime>10/18/2018 07:17:53</publishTime>
@@ -3148,7 +3364,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:17:53</publishTime>
     </File>
     <File Include="Assets/js/simple-lightbox.js">
-      <publishTime>10/18/2018 07:17:53</publishTime>
+      <publishTime>03/18/2019 03:07:42</publishTime>
     </File>
     <File Include="Assets/js/SmoothScroll.min.js">
       <publishTime>10/18/2018 07:17:53</publishTime>
@@ -3163,34 +3379,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:13:56</publishTime>
     </File>
     <File Include="bin/Carisbrook.dll">
-      <publishTime>01/24/2019 20:36:06</publishTime>
+      <publishTime>03/20/2019 08:38:13</publishTime>
     </File>
     <File Include="bin/Carisbrook.pdb">
-      <publishTime>01/24/2019 20:36:06</publishTime>
+      <publishTime>03/20/2019 08:38:13</publishTime>
     </File>
     <File Include="bin/Demo.Core.dll">
-      <publishTime>01/24/2019 20:29:46</publishTime>
+      <publishTime>03/18/2019 09:32:13</publishTime>
     </File>
     <File Include="bin/Demo.Core.dll.config">
-      <publishTime>01/23/2019 15:39:45</publishTime>
+      <publishTime>03/04/2019 11:40:45</publishTime>
     </File>
     <File Include="bin/Demo.Core.pdb">
-      <publishTime>01/24/2019 20:29:46</publishTime>
+      <publishTime>03/18/2019 09:32:13</publishTime>
     </File>
     <File Include="bin/DemoModel.dll">
-      <publishTime>01/24/2019 20:29:46</publishTime>
+      <publishTime>03/18/2019 09:32:13</publishTime>
     </File>
     <File Include="bin/DemoModel.pdb">
-      <publishTime>01/24/2019 20:29:46</publishTime>
+      <publishTime>03/18/2019 09:32:13</publishTime>
     </File>
     <File Include="bin/DemoService.dll">
-      <publishTime>01/24/2019 20:29:47</publishTime>
+      <publishTime>03/18/2019 09:32:19</publishTime>
     </File>
     <File Include="bin/DemoService.dll.config">
       <publishTime>10/04/2018 15:43:54</publishTime>
     </File>
     <File Include="bin/DemoService.pdb">
-      <publishTime>01/24/2019 20:29:47</publishTime>
+      <publishTime>03/18/2019 09:32:19</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -4465,7 +4681,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2018 04:47:50</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>11/21/2018 07:04:34</publishTime>
+      <publishTime>03/17/2019 23:57:58</publishTime>
     </File>
     <File Include="Views/Admin/AddAlbum.cshtml">
       <publishTime>01/23/2019 17:39:16</publishTime>
@@ -4507,10 +4723,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:12:41</publishTime>
     </File>
     <File Include="Views/Home/Gallery.cshtml">
-      <publishTime>11/25/2018 20:51:24</publishTime>
+      <publishTime>03/18/2019 02:37:02</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>01/23/2019 17:39:32</publishTime>
+      <publishTime>03/19/2019 16:16:35</publishTime>
     </File>
     <File Include="Views/Home/Info.cshtml">
       <publishTime>10/20/2018 09:40:48</publishTime>
@@ -4519,7 +4735,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2018 09:43:37</publishTime>
     </File>
     <File Include="Views/Home/MenuSection.cshtml">
-      <publishTime>01/23/2019 15:35:40</publishTime>
+      <publishTime>03/18/2019 09:08:19</publishTime>
     </File>
     <File Include="Views/Home/Newsletter.cshtml">
       <publishTime>10/20/2018 23:05:25</publishTime>
@@ -4534,13 +4750,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:12:41</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>01/23/2019 17:44:05</publishTime>
+      <publishTime>01/24/2019 20:39:51</publishTime>
     </File>
     <File Include="Views/Shared/_Layout - Copy.cshtml">
       <publishTime>10/18/2018 07:25:40</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>01/23/2019 17:14:22</publishTime>
+      <publishTime>03/18/2019 09:20:28</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/18/2018 07:12:41</publishTime>
@@ -4549,7 +4765,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2018 07:12:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/24/2019 20:36:08</publishTime>
+      <publishTime>03/18/2019 09:32:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

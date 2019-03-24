@@ -123,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
                     <div class="col-xs-4 mkls_footer_grid_left">
                         <h4>Location:</h4>
                         <p>
-                            Carisbrook School Main Site:                            
+                            Carisbrook School Main Site:
                             <br> 217 South Road, Caversham
                             <br>  DUNEDIN   9012
                         </p>
@@ -137,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
                             <span>Facsimile: </span>03 455 3720
                         </p>
                         <p>
-                            <span>Email : </span>office@carisbrook.school.nz                                                      
+                            <span>Email : </span>office@carisbrook.school.nz
                         </p>
                     </div>
                     <div class="col-xs-4 mkls_footer_grid_left">
@@ -159,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
                 <div class="allah-copy">
                     <p>
                         Copyright © 2018 Carisbrook School |
-                        Web Development by <a href="#"  style="color:white">ravindermadra</a>
+                        Web Development by <a href="#" style="color:white">ravindermadra</a>
                     </p>
                 </div>
                 <div class="footercopy-social">
@@ -264,17 +264,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
     <!-- //js-files -->
     <script type="text/javascript" src="~/Assets/js/simple-lightbox.js"></script>
     @*<script>
-        $(function () {
-            var gallery = $('.agileinfo-gallery-row a').simpleLightbox({
-                navText: ['&lsaquo;', '&rsaquo;']
+            $(function () {
+                var gallery = $('.agileinfo-gallery-row a').simpleLightbox({
+                    navText: ['&lsaquo;', '&rsaquo;']
+                });
             });
-        });
-    </script>*@
+        </script>*@
     <link href='~/Assets/css/simplelightbox.min.css' rel='stylesheet' type='text/css'>
     <!-- Light-box css -->
     <!-- smooth scrolling -->
     <script src="~/Assets/js/SmoothScroll.min.js"></script>
+    <script>
+        $('#dvAboutUs').hover(function (e) {
+            $('#dvAboutUs').addClass('open');
+            $('#dvOurSchool').removeClass('open');
+            $('#dvExtra').removeClass('open');
+            $('#dvGeneral').removeClass('open');
+        });
+        $('#dvOurSchool').hover(function (e) {
+            $('#dvOurSchool').addClass('open');
+            $('#dvExtra').removeClass('open');
+            $('#dvGeneral').removeClass('open');
+            $('#dvAboutUs').removeClass('open');
+        });
+        $('#dvExtra').hover(function (e) {
+            $('#dvExtra').addClass('open');
+            $('#dvGeneral').removeClass('open');
+            $('#dvAboutUs').removeClass('open');
+            $('#dvOurSchool').removeClass('open');
+        });
+        $('#dvGeneral').hover(function (e) {
+            $('#dvGeneral').addClass('open');
+            $('#dvOurSchool').removeClass('open');
+            $('#dvExtra').removeClass('open');
+            $('#dvAboutUs').removeClass('open');
+        });
 
+    </script>
 </body>
 
 </html>
