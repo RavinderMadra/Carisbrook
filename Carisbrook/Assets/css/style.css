@@ -513,7 +513,8 @@ h3.tittle {
 /*-- stats --*/
 
 .stats-info-agile {
-    background: url(../images/a1.jpg) no-repeat center;
+    background-color: #E86850; 
+        /*url(../images/a1.jpg) no-repeat center;*/
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -675,7 +676,7 @@ h3.tittle {
 /*-- news --*/
 
 .news-left-img {
-    background: url(../images/s4.jpg) no-repeat 0px 0px;
+    background: url(../images/Events/waiora.jpg) no-repeat 0px 0px;
     background-size: cover;
     min-height: 200px;
 }
@@ -760,7 +761,7 @@ h3.tittle {
 }
 
 .news-left-img1 {
-    background: url(../images/s1.jpg) no-repeat 0px 0px !important;
+    background: url(../images/Events/berwick.jpg) no-repeat 0px 0px !important;
     background-size: cover!important;
 }
 
@@ -769,12 +770,12 @@ h3.tittle {
 }
 
 .news-left-img2 {
-    background: url(../images/s2.jpg) no-repeat 0px 0px !important;
+    background: url(../images/Events/Otagomuseum.jpg) no-repeat 0px 0px !important;
     background-size: cover!important;
 }
 
 .news-left-img3 {
-    background: url(../images/s3.jpg) no-repeat 0px 0px !important;
+    background: url(../images/Events/Waikouaiti.jpg) no-repeat 0px 0px !important;
     background-size: cover!important;
 }
 
